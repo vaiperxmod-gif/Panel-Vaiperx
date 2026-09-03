@@ -5,15 +5,14 @@
 
 <meta charset="UTF-8">
 
-<meta
-    name="viewport"
-    content="width=device-width,
-    initial-scale=1.0,
-    maximum-scale=1.0,
-    user-scalable=no"
->
+<meta name="viewport"
+      content="width=device-width,
+      initial-scale=1.0,
+      maximum-scale=1.0,
+      user-scalable=no,
+      viewport-fit=cover">
 
-<meta name="theme-color" content="#030303">
+<meta name="theme-color" content="#020303">
 
 <title>VaiperX Installation Center</title>
 
@@ -25,32 +24,30 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 
 <link
-    href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&family=Orbitron:wght@500;600;700;800&display=swap"
-    rel="stylesheet"
->
+href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&family=Orbitron:wght@500;600;700;800;900&display=swap"
+rel="stylesheet">
 
 
 <!-- =====================================================
-     FONT AWESOME
+     FONT AWESOME SOLID
 ===================================================== -->
 
 <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 >
 
 
 <style>
 
-/* =========================================================
+/* =====================================================
    RESET
-========================================================= */
+===================================================== */
 
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-
     -webkit-tap-highlight-color:transparent;
 }
 
@@ -62,7 +59,7 @@ body{
 
     min-height:100vh;
 
-    background:#030303;
+    background:#020303;
 
     color:#fff;
 
@@ -72,9 +69,9 @@ body{
 }
 
 
-/* =========================================================
-   BACKGROUND GLOW
-========================================================= */
+/* =====================================================
+   BACKGROUND
+===================================================== */
 
 body::before{
 
@@ -84,63 +81,64 @@ body::before{
 
     inset:0;
 
-    z-index:-5;
+    z-index:-10;
 
     background:
 
         radial-gradient(
-            circle at 50% 10%,
-            rgba(255,0,45,.18),
+            circle at 50% 0%,
+            rgba(0,190,255,.13),
+            transparent 28%
+        ),
+
+        radial-gradient(
+            circle at 10% 70%,
+            rgba(0,255,140,.06),
             transparent 30%
         ),
 
         radial-gradient(
-            circle at 0% 80%,
-            rgba(255,0,35,.08),
+            circle at 90% 80%,
+            rgba(0,150,255,.06),
             transparent 30%
         ),
 
-        radial-gradient(
-            circle at 100% 70%,
-            rgba(255,0,50,.07),
-            transparent 30%
-        ),
-
-        #030303;
+        #020303;
 }
 
 
-/* =========================================================
-   GRID
-========================================================= */
+/* =====================================================
+   CYBER GRID
+===================================================== */
 
-.grid-bg{
+.grid{
 
     position:fixed;
 
     inset:0;
 
-    z-index:-4;
+    z-index:-9;
 
     pointer-events:none;
+
+    opacity:.5;
 
     background-image:
 
         linear-gradient(
-            rgba(255,0,40,.035) 1px,
+            rgba(0,190,255,.025) 1px,
             transparent 1px
         ),
 
         linear-gradient(
             90deg,
-            rgba(255,0,40,.035) 1px,
+            rgba(0,190,255,.025) 1px,
             transparent 1px
         );
 
-    background-size:45px 45px;
+    background-size:42px 42px;
 
     mask-image:
-
         linear-gradient(
             to bottom,
             black,
@@ -149,9 +147,68 @@ body::before{
 }
 
 
-/* =========================================================
+/* =====================================================
+   MOVING LIGHTS
+===================================================== */
+
+.bg-light{
+
+    position:fixed;
+
+    width:350px;
+
+    height:350px;
+
+    border-radius:50%;
+
+    filter:blur(100px);
+
+    pointer-events:none;
+
+    z-index:-8;
+
+    opacity:.12;
+
+    animation:moveLight 12s ease-in-out infinite;
+}
+
+.bg-light.one{
+
+    background:#00bfff;
+
+    top:-180px;
+
+    left:-120px;
+}
+
+.bg-light.two{
+
+    background:#00ff91;
+
+    bottom:-180px;
+
+    right:-120px;
+
+    animation-delay:-5s;
+}
+
+
+@keyframes moveLight{
+
+    0%,
+    100%{
+        transform:translate(0,0);
+    }
+
+    50%{
+        transform:translate(60px,40px);
+    }
+}
+
+
+/* =====================================================
    PARTICLES
-========================================================= */
+===================================================== */
 
 .particles{
 
@@ -161,9 +218,9 @@ body::before{
 
     overflow:hidden;
 
-    z-index:-3;
-
     pointer-events:none;
+
+    z-index:-5;
 }
 
 
@@ -171,77 +228,74 @@ body::before{
 
     position:absolute;
 
-    width:3px;
+    width:2px;
 
-    height:3px;
+    height:2px;
 
     border-radius:50%;
 
-    background:#ff1738;
+    background:#fff;
 
     box-shadow:
-
-        0 0 8px #ff1738,
-
-        0 0 18px rgba(255,0,40,.7);
+        0 0 8px #00c8ff;
 
     animation:
-        floatParticle
+        particleMove
         linear
         infinite;
 }
 
 
 .particle:nth-child(1){
-    left:7%;
-    top:90%;
-    animation-duration:9s;
-}
-
-.particle:nth-child(2){
-    left:18%;
-    top:75%;
-    animation-duration:12s;
-}
-
-.particle:nth-child(3){
-    left:30%;
-    top:95%;
-    animation-duration:8s;
-}
-
-.particle:nth-child(4){
-    left:43%;
-    top:80%;
+    left:8%;
+    bottom:-10px;
     animation-duration:11s;
 }
 
-.particle:nth-child(5){
-    left:58%;
-    top:92%;
+.particle:nth-child(2){
+    left:19%;
+    bottom:-20px;
+    animation-duration:8s;
+}
+
+.particle:nth-child(3){
+    left:32%;
+    bottom:-15px;
+    animation-duration:14s;
+}
+
+.particle:nth-child(4){
+    left:45%;
+    bottom:-20px;
     animation-duration:10s;
 }
 
-.particle:nth-child(6){
-    left:70%;
-    top:75%;
+.particle:nth-child(5){
+    left:57%;
+    bottom:-10px;
     animation-duration:13s;
 }
 
-.particle:nth-child(7){
-    left:82%;
-    top:88%;
+.particle:nth-child(6){
+    left:68%;
+    bottom:-20px;
     animation-duration:9s;
 }
 
-.particle:nth-child(8){
-    left:94%;
-    top:65%;
+.particle:nth-child(7){
+    left:81%;
+    bottom:-15px;
     animation-duration:12s;
 }
 
+.particle:nth-child(8){
+    left:93%;
+    bottom:-20px;
+    animation-duration:15s;
+}
 
-@keyframes floatParticle{
+
+@keyframes particleMove{
 
     0%{
 
@@ -252,18 +306,18 @@ body::before{
         opacity:0;
     }
 
-    20%{
+    15%{
         opacity:1;
     }
 
-    80%{
-        opacity:.8;
+    85%{
+        opacity:.7;
     }
 
     100%{
 
         transform:
-            translateY(-100vh)
+            translateY(-110vh)
             scale(1.3);
 
         opacity:0;
@@ -271,48 +325,49 @@ body::before{
 }
 
 
-/* =========================================================
-   CONTAINER
-========================================================= */
+/* =====================================================
+   MAIN
+===================================================== */
 
 .container{
 
-    width:min(900px,92%);
+    width:min(820px,92%);
 
     margin:auto;
 
     padding:
-        55px
+        35px
         0
-        70px;
+        65px;
 }
 
 
-/* =========================================================
-   HEADER
-========================================================= */
+/* =====================================================
+   VAIPERX HEADER
+===================================================== */
 
 .header{
 
     text-align:center;
 
-    margin-bottom:42px;
+    margin-bottom:38px;
 
     animation:
-        fadeDown
+        headerIn
         .8s
         ease;
 }
 
 
-@keyframes fadeDown{
+@keyframes headerIn{
 
     from{
 
         opacity:0;
 
         transform:
-            translateY(-20px);
+            translateY(-25px)
+            scale(.96);
     }
 
     to{
@@ -320,27 +375,118 @@ body::before{
         opacity:1;
 
         transform:
-            translateY(0);
+            translateY(0)
+            scale(1);
     }
 }
 
 
-/* =========================================================
+/* =====================================================
+   LIGHTNING DECORATION
+===================================================== */
+
+.lightning{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:12px;
+
+    margin-bottom:5px;
+}
+
+
+.lightning-line{
+
+    width:65px;
+
+    height:1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #00c8ff
+        );
+
+    box-shadow:
+        0 0 10px #00c8ff;
+}
+
+
+.lightning-line.right{
+
+    background:
+        linear-gradient(
+            90deg,
+            #00c8ff,
+            transparent
+        );
+}
+
+
+.lightning-icon{
+
+    color:#6de7ff;
+
+    font-size:19px;
+
+    filter:
+
+        drop-shadow(
+            0 0 5px #00c8ff
+        )
+
+        drop-shadow(
+            0 0 14px #00c8ff
+        );
+
+    animation:
+        lightningPulse
+        1.2s
+        infinite;
+}
+
+
+@keyframes lightningPulse{
+
+    0%,
+    100%{
+        opacity:1;
+        transform:scale(1);
+    }
+
+    45%{
+        opacity:.65;
+        transform:scale(.92);
+    }
+
+    50%{
+        opacity:1;
+        transform:scale(1.1);
+    }
+}
+
+
+/* =====================================================
    LOGO
-========================================================= */
+===================================================== */
 
 .logo{
 
     font-family:'Orbitron',sans-serif;
 
-    font-weight:800;
-
     font-size:
         clamp(
-            34px,
-            8vw,
-            64px
+            38px,
+            10vw,
+            70px
         );
+
+    font-weight:900;
 
     letter-spacing:3px;
 
@@ -349,8 +495,9 @@ body::before{
         linear-gradient(
             180deg,
             #ffffff 5%,
-            #ff5268 45%,
-            #ff001f 100%
+            #b9f4ff 35%,
+            #24cfff 70%,
+            #008dff 100%
         );
 
     -webkit-background-clip:text;
@@ -362,41 +509,86 @@ body::before{
     filter:
 
         drop-shadow(
-            0 0 8px
-            rgba(255,0,40,.55)
+            0 0 5px
+            rgba(0,195,255,.9)
         )
 
         drop-shadow(
-            0 0 22px
-            rgba(255,0,40,.25)
+            0 0 20px
+            rgba(0,180,255,.5)
+        )
+
+        drop-shadow(
+            0 0 45px
+            rgba(0,130,255,.2)
         );
 }
 
 
-.logo span{
-    color:#ff1635;
+.crown{
+
+    display:inline-block;
+
+    color:#ffd84d;
+
+    margin-left:5px;
+
+    font-size:.7em;
+
+    filter:
+
+        drop-shadow(
+            0 0 5px
+            rgba(255,210,50,.9)
+        )
+
+        drop-shadow(
+            0 0 15px
+            rgba(255,190,0,.5)
+        );
+
+    animation:
+        crownFloat
+        2s
+        ease-in-out
+        infinite;
 }
 
 
-/* =========================================================
+@keyframes crownFloat{
+
+    0%,
+    100%{
+        transform:translateY(0) rotate(-3deg);
+    }
+
+    50%{
+        transform:translateY(-4px) rotate(3deg);
+    }
+}
+
+
+/* =====================================================
    SUBTITLE
-========================================================= */
+===================================================== */
 
 .subtitle{
 
-    margin-top:10px;
+    margin-top:7px;
 
-    color:#999;
+    color:#7f8b91;
 
-    font-size:15px;
+    font-size:12px;
 
-    letter-spacing:1px;
+    letter-spacing:3px;
+
+    text-transform:uppercase;
 }
 
 
-/* =========================================================
-   SYSTEM STATUS
-========================================================= */
+/* =====================================================
+   STATUS
+===================================================== */
 
 .status{
 
@@ -406,155 +598,149 @@ body::before{
 
     gap:8px;
 
-    margin-top:18px;
+    margin-top:15px;
 
     padding:
-        7px
-        15px;
-
-    border:
-        1px solid
-        rgba(255,0,40,.35);
+        6px
+        14px;
 
     border-radius:30px;
 
     background:
-        rgba(255,0,40,.06);
+        rgba(0,190,255,.035);
 
-    color:#ff5268;
+    border:
+        1px solid
+        rgba(0,190,255,.22);
 
-    font-size:12px;
+    color:#6edfff;
+
+    font-size:10px;
+
+    letter-spacing:1px;
+
+    box-shadow:
+        0 0 20px
+        rgba(0,190,255,.05);
 }
 
 
 .status-dot{
 
-    width:7px;
+    width:6px;
 
-    height:7px;
+    height:6px;
 
     border-radius:50%;
 
-    background:#ff1635;
+    background:#00d9ff;
 
     box-shadow:
-
-        0 0 7px #ff1635,
-
-        0 0 15px #ff1635;
+        0 0 6px #00d9ff,
+        0 0 14px #00d9ff;
 
     animation:
-        pulse
-        1.5s
+        statusPulse
+        1.4s
         infinite;
 }
 
 
-@keyframes pulse{
-
-    0%,
-    100%{
-
-        opacity:1;
-
-        transform:scale(1);
-    }
+@keyframes statusPulse{
 
     50%{
-
-        opacity:.4;
-
-        transform:scale(.7);
+        opacity:.35;
+        transform:scale(.65);
     }
 }
 
 
-/* =========================================================
-   SECTION TITLE
-========================================================= */
+/* =====================================================
+   SECTION
+===================================================== */
 
-.section-title{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:12px;
-
-    margin-bottom:18px;
-
-    font-size:14px;
-
-    color:#aaa;
-
-    letter-spacing:1px;
-}
-
-
-.section-title::before{
-
-    content:"";
-
-    width:4px;
-
-    height:18px;
-
-    border-radius:5px;
-
-    background:#ff1738;
-
-    box-shadow:
-        0 0 12px #ff1738;
-}
-
-
-/* =========================================================
-   MENU
-========================================================= */
-
-.menu{
-
-    display:grid;
-
-    gap:16px;
-}
-
-
-/* =========================================================
-   CARD
-========================================================= */
-
-.card{
+.section{
 
     position:relative;
 
+    margin-bottom:25px;
+
+    padding:2px;
+
+    border-radius:25px;
+
     overflow:hidden;
 
-    display:flex;
+    isolation:isolate;
+}
 
-    align-items:center;
 
-    min-height:108px;
+/* =====================================================
+   MOVING BORDER
+===================================================== */
 
-    padding:18px;
+.section::before{
 
-    border-radius:20px;
+    content:"";
 
-    border:
-        1px solid
-        rgba(255,255,255,.07);
+    position:absolute;
+
+    inset:-60%;
+
+    z-index:-2;
+
+    background:
+
+        conic-gradient(
+            from 0deg,
+            transparent 0deg,
+            transparent 55deg,
+            var(--accent) 85deg,
+            #fff 95deg,
+            var(--accent) 105deg,
+            transparent 135deg,
+            transparent 360deg
+        );
+
+    animation:
+        rotateBorder
+        3.2s
+        linear
+        infinite;
+}
+
+
+@keyframes rotateBorder{
+
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+
+/* =====================================================
+   SECTION INNER
+===================================================== */
+
+.section-inner{
+
+    position:relative;
+
+    border-radius:23px;
+
+    padding:23px 20px 20px;
 
     background:
 
         linear-gradient(
-            135deg,
-            rgba(255,255,255,.055),
-            rgba(255,255,255,.015)
+            145deg,
+            rgba(12,15,17,.97),
+            rgba(3,5,6,.98)
         );
 
-    backdrop-filter:blur(18px);
-
-    -webkit-backdrop-filter:blur(18px);
+    border:
+        1px solid
+        rgba(255,255,255,.055);
 
     box-shadow:
 
@@ -562,8 +748,165 @@ body::before{
         0 1px 0
         rgba(255,255,255,.04),
 
-        0 15px 45px
-        rgba(0,0,0,.45);
+        0 20px 60px
+        rgba(0,0,0,.55);
+}
+
+
+/* =====================================================
+   BLUE SECTION
+===================================================== */
+
+.blue-section{
+
+    --accent:#00c8ff;
+
+    box-shadow:
+        0 0 35px
+        rgba(0,190,255,.08);
+}
+
+
+/* =====================================================
+   GREEN SECTION
+===================================================== */
+
+.green-section{
+
+    --accent:#00ff91;
+
+    box-shadow:
+        0 0 35px
+        rgba(0,255,130,.08);
+}
+
+
+/* =====================================================
+   SECTION HEADER
+===================================================== */
+
+.section-header{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:13px;
+
+    margin-bottom:18px;
+}
+
+
+.section-icon{
+
+    width:45px;
+
+    height:45px;
+
+    flex-shrink:0;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:13px;
+
+    font-size:19px;
+
+    border:
+        1px solid
+        var(--accent);
+
+    color:
+        var(--accent);
+
+    background:
+        color-mix(
+            in srgb,
+            var(--accent) 8%,
+            transparent
+        );
+
+    box-shadow:
+
+        0 0 18px
+        color-mix(
+            in srgb,
+            var(--accent) 18%,
+            transparent
+        );
+
+    transition:.3s ease;
+}
+
+
+.section-title{
+
+    font-size:19px;
+
+    font-weight:600;
+
+    color:#fff;
+}
+
+
+.section-subtitle{
+
+    color:#697176;
+
+    font-size:11px;
+
+    margin-top:1px;
+}
+
+
+/* =====================================================
+   MENU
+===================================================== */
+
+.menu{
+
+    display:grid;
+
+    gap:12px;
+}
+
+
+/* =====================================================
+   BUTTON CARD
+===================================================== */
+
+.card{
+
+    position:relative;
+
+    display:flex;
+
+    align-items:center;
+
+    min-height:88px;
+
+    padding:
+        14px
+        15px;
+
+    border-radius:17px;
+
+    background:
+
+        linear-gradient(
+            110deg,
+            rgba(255,255,255,.045),
+            rgba(255,255,255,.012)
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,.065);
+
+    overflow:hidden;
 
     cursor:pointer;
 
@@ -573,13 +916,15 @@ body::before{
 
         border-color .25s ease,
 
+        background .25s ease,
+
         box-shadow .25s ease;
 }
 
 
-/* =========================================================
-   LIGHT SWEEP
-========================================================= */
+/* =====================================================
+   CARD LIGHT
+===================================================== */
 
 .card::before{
 
@@ -587,78 +932,103 @@ body::before{
 
     position:absolute;
 
-    left:-100%;
+    left:-130%;
 
     top:0;
 
-    width:60%;
+    width:70%;
 
     height:100%;
+
+    transform:
+        skewX(-20deg);
 
     background:
 
         linear-gradient(
             90deg,
             transparent,
-            rgba(255,0,40,.10),
+            color-mix(
+                in srgb,
+                var(--accent) 13%,
+                transparent
+            ),
             transparent
         );
 
-    transform:skewX(-20deg);
-
     transition:
         left
-        .7s
+        .65s
         ease;
 }
 
 
 .card:hover::before{
+
     left:140%;
 }
 
 
-/* =========================================================
-   HOVER
-========================================================= */
+/* =====================================================
+   CARD HOVER
+===================================================== */
 
 .card:hover{
 
     transform:
-        translateY(-4px);
+        translateY(-3px);
 
     border-color:
-        rgba(255,20,55,.5);
+        color-mix(
+            in srgb,
+            var(--accent) 55%,
+            transparent
+        );
+
+    background:
+
+        linear-gradient(
+            110deg,
+            color-mix(
+                in srgb,
+                var(--accent) 7%,
+                transparent
+            ),
+            rgba(255,255,255,.025)
+        );
 
     box-shadow:
 
-        0 18px 55px
-        rgba(0,0,0,.55),
+        0 12px 35px
+        rgba(0,0,0,.45),
 
-        0 0 30px
-        rgba(255,0,40,.12);
+        0 0 22px
+        color-mix(
+            in srgb,
+            var(--accent) 10%,
+            transparent
+        );
 }
 
 
 .card:active{
 
     transform:
-        scale(.98);
+        scale(.975);
 }
 
 
-/* =========================================================
-   SOLID ICON BOX
-========================================================= */
+/* =====================================================
+   CARD ICON
+===================================================== */
 
-.icon-box{
+.card-icon{
 
-    flex:
-        0 0 66px;
+    width:53px;
 
-    width:66px;
+    height:53px;
 
-    height:66px;
+    flex:0 0 53px;
 
     display:flex;
 
@@ -666,173 +1036,149 @@ body::before{
 
     justify-content:center;
 
-    margin-right:17px;
+    margin-right:14px;
 
-    border-radius:17px;
+    border-radius:14px;
+
+    color:
+        var(--accent);
 
     background:
 
-        linear-gradient(
-            145deg,
-            rgba(255,20,50,.20),
-            rgba(255,0,30,.045)
+        color-mix(
+            in srgb,
+            var(--accent) 7%,
+            transparent
         );
 
     border:
         1px solid
-        rgba(255,30,60,.28);
+        color-mix(
+            in srgb,
+            var(--accent) 24%,
+            transparent
+        );
 
-    box-shadow:
+    font-size:20px;
 
-        inset
-        0 0 20px
-        rgba(255,0,40,.06),
-
-        0 0 22px
-        rgba(255,0,40,.07);
-
-    color:#ff2948;
-
-    font-size:25px;
-
-    transition:
-        .3s
-        ease;
+    transition:.3s ease;
 }
 
 
-/* =========================================================
-   ICON HOVER
-========================================================= */
-
-.card:hover .icon-box{
-
-    transform:
-        scale(1.08)
-        rotate(-3deg);
+.card:hover .card-icon{
 
     color:#fff;
 
     background:
-
-        linear-gradient(
-            145deg,
-            #ff2345,
-            #b90020
-        );
+        var(--accent);
 
     border-color:
-        rgba(255,80,100,.8);
+        var(--accent);
 
     box-shadow:
 
-        0 0 25px
-        rgba(255,0,40,.30),
+        0 0 20px
+        color-mix(
+            in srgb,
+            var(--accent) 45%,
+            transparent
+        );
 
-        0 0 45px
-        rgba(255,0,40,.10);
+    transform:
+        scale(1.06);
 }
 
 
-/* =========================================================
-   CONTENT
-========================================================= */
+/* =====================================================
+   CARD CONTENT
+===================================================== */
 
 .card-content{
 
     flex:1;
 
     min-width:0;
+
+    padding-right:5px;
 }
 
 
 .card-title{
 
-    font-size:18px;
+    font-size:15px;
 
     font-weight:600;
 
-    color:#fff;
+    color:#f4f7f8;
 
-    margin-bottom:3px;
+    line-height:1.35;
 }
 
 
 .card-description{
 
-    color:#8e8e8e;
+    margin-top:3px;
 
-    font-size:12px;
+    font-size:10px;
 
-    line-height:1.5;
+    color:#687176;
+
+    line-height:1.4;
 }
 
 
-/* =========================================================
-   BADGE
-========================================================= */
+/* =====================================================
+   TAG
+===================================================== */
 
-.badge{
+.tag{
 
     display:inline-flex;
 
-    align-items:center;
-
-    margin-top:7px;
+    margin-top:5px;
 
     padding:
-        3px
-        8px;
+        2px
+        7px;
 
-    border-radius:5px;
+    border-radius:4px;
+
+    font-size:8px;
+
+    letter-spacing:.7px;
+
+    color:
+        var(--accent);
 
     background:
-        rgba(255,0,40,.09);
+
+        color-mix(
+            in srgb,
+            var(--accent) 6%,
+            transparent
+        );
 
     border:
         1px solid
-        rgba(255,0,40,.18);
-
-    color:#ff5368;
-
-    font-size:10px;
-
-    letter-spacing:.3px;
+        color-mix(
+            in srgb,
+            var(--accent) 16%,
+            transparent
+        );
 }
 
 
-/* =========================================================
-   NUMBER
-========================================================= */
-
-.number{
-
-    position:absolute;
-
-    right:72px;
-
-    top:12px;
-
-    font-family:'Orbitron',sans-serif;
-
-    font-size:10px;
-
-    color:
-        rgba(255,255,255,.12);
-
-    letter-spacing:2px;
-}
-
-
-/* =========================================================
+/* =====================================================
    ARROW
-========================================================= */
+===================================================== */
 
 .arrow{
 
-    width:38px;
+    width:34px;
 
-    height:38px;
+    height:34px;
+
+    flex:0 0 34px;
 
     display:flex;
 
@@ -840,328 +1186,110 @@ body::before{
 
     justify-content:center;
 
-    margin-left:10px;
-
     border-radius:50%;
 
-    color:#ff3650;
-
-    background:
-        rgba(255,0,40,.06);
+    color:#596166;
 
     border:
         1px solid
-        rgba(255,0,40,.15);
+        rgba(255,255,255,.07);
 
-    font-size:17px;
+    background:
+        rgba(255,255,255,.025);
 
-    transition:
-        .3s
-        ease;
+    transition:.3s ease;
 }
 
 
 .card:hover .arrow{
 
-    background:#ff1738;
+    color:#fff;
 
-    color:white;
+    background:
+        var(--accent);
+
+    border-color:
+        var(--accent);
 
     box-shadow:
-        0 0 20px
-        rgba(255,0,40,.35);
+        0 0 16px
+        color-mix(
+            in srgb,
+            var(--accent) 35%,
+            transparent
+        );
 
     transform:
         translateX(3px);
 }
 
 
-/* =========================================================
+/* =====================================================
+   SECTION FOOTER
+===================================================== */
+
+.section-footer{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:8px;
+
+    margin-top:16px;
+
+    color:#4f585d;
+
+    font-size:9px;
+
+    letter-spacing:1px;
+}
+
+
+.section-footer i{
+
+    color:
+        var(--accent);
+
+    font-size:8px;
+
+    filter:
+        drop-shadow(
+            0 0 5px
+            var(--accent)
+        );
+}
+
+
+/* =====================================================
    FOOTER
-========================================================= */
+===================================================== */
 
 .footer{
 
-    margin-top:35px;
-
     text-align:center;
 
-    color:#555;
+    margin-top:35px;
 
-    font-size:11px;
+    color:#3f4649;
+
+    font-size:10px;
+
+    letter-spacing:1px;
 }
 
 
 .footer strong{
-    color:#777;
+
+    color:#596267;
 }
 
 
-/* =========================================================
-   MODAL
-========================================================= */
-
-.modal{
-
-    position:fixed;
-
-    inset:0;
-
-    display:none;
-
-    align-items:center;
-
-    justify-content:center;
-
-    padding:20px;
-
-    background:
-        rgba(0,0,0,.78);
-
-    backdrop-filter:blur(12px);
-
-    -webkit-backdrop-filter:blur(12px);
-
-    z-index:100;
-}
-
-
-.modal.active{
-
-    display:flex;
-
-    animation:
-        modalFade
-        .25s
-        ease;
-}
-
-
-@keyframes modalFade{
-
-    from{
-        opacity:0;
-    }
-
-    to{
-        opacity:1;
-    }
-}
-
-
-/* =========================================================
-   MODAL BOX
-========================================================= */
-
-.modal-box{
-
-    width:min(
-        500px,
-        100%
-    );
-
-    padding:28px;
-
-    border-radius:24px;
-
-    background:
-
-        linear-gradient(
-            145deg,
-            #151515,
-            #080808
-        );
-
-    border:
-        1px solid
-        rgba(255,0,40,.3);
-
-    box-shadow:
-
-        0 25px 80px
-        rgba(0,0,0,.8),
-
-        0 0 50px
-        rgba(255,0,40,.08);
-
-    text-align:center;
-
-    animation:
-        modalUp
-        .35s
-        ease;
-}
-
-
-@keyframes modalUp{
-
-    from{
-
-        transform:
-            translateY(25px)
-            scale(.95);
-
-        opacity:0;
-    }
-
-    to{
-
-        transform:
-            translateY(0)
-            scale(1);
-
-        opacity:1;
-    }
-}
-
-
-/* =========================================================
-   MODAL ICON
-========================================================= */
-
-.modal-icon{
-
-    width:70px;
-
-    height:70px;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    margin:
-        0
-        auto
-        14px;
-
-    border-radius:20px;
-
-    background:
-
-        linear-gradient(
-            145deg,
-            rgba(255,20,50,.20),
-            rgba(255,0,30,.04)
-        );
-
-    border:
-        1px solid
-        rgba(255,30,60,.30);
-
-    color:#ff2948;
-
-    font-size:29px;
-
-    box-shadow:
-
-        0 0 25px
-        rgba(255,0,40,.10);
-}
-
-
-.modal-title{
-
-    font-size:22px;
-
-    font-weight:600;
-}
-
-
-.modal-text{
-
-    color:#888;
-
-    font-size:13px;
-
-    margin-top:7px;
-
-    line-height:1.6;
-}
-
-
-/* =========================================================
-   MODAL ACTIONS
-========================================================= */
-
-.modal-actions{
-
-    display:flex;
-
-    gap:10px;
-
-    margin-top:23px;
-}
-
-
-.modal-button{
-
-    flex:1;
-
-    height:48px;
-
-    border:none;
-
-    border-radius:12px;
-
-    font-family:'Kanit',sans-serif;
-
-    font-size:14px;
-
-    cursor:pointer;
-
-    transition:
-        .2s
-        ease;
-}
-
-
-/* CANCEL */
-
-.cancel{
-
-    background:#181818;
-
-    color:#aaa;
-
-    border:
-        1px solid
-        #292929;
-}
-
-
-/* CONFIRM */
-
-.confirm{
-
-    background:
-
-        linear-gradient(
-            135deg,
-            #ff193b,
-            #b90020
-        );
-
-    color:white;
-
-    box-shadow:
-
-        0 0 20px
-        rgba(255,0,40,.2);
-}
-
-
-.confirm:hover{
-
-    filter:
-        brightness(1.15);
-}
-
-
-/* =========================================================
+/* =====================================================
    TOAST
-========================================================= */
+===================================================== */
 
 .toast{
 
@@ -1169,44 +1297,54 @@ body::before{
 
     left:50%;
 
-    bottom:25px;
+    bottom:
+        calc(
+            25px +
+            env(safe-area-inset-bottom)
+        );
 
     transform:
-        translate(-50%,30px);
+        translate(-50%,25px)
+        scale(.95);
+
+    display:flex;
+
+    align-items:center;
+
+    gap:9px;
 
     padding:
-        12px
-        20px;
+        11px
+        18px;
 
     border-radius:12px;
 
-    background:#151515;
+    background:
+        rgba(12,14,15,.96);
 
     border:
         1px solid
-        rgba(255,0,40,.3);
+        rgba(0,200,255,.25);
 
-    color:#fff;
+    color:#dce5e8;
 
-    font-size:13px;
+    font-size:11px;
 
     opacity:0;
 
     pointer-events:none;
 
-    transition:
-        .3s
-        ease;
+    z-index:999;
 
-    z-index:200;
+    transition:.3s ease;
 
     box-shadow:
 
-        0 10px 35px
-        rgba(0,0,0,.5),
+        0 15px 40px
+        rgba(0,0,0,.6),
 
         0 0 20px
-        rgba(255,0,40,.1);
+        rgba(0,190,255,.07);
 }
 
 
@@ -1215,13 +1353,20 @@ body::before{
     opacity:1;
 
     transform:
-        translate(-50%,0);
+        translate(-50%,0)
+        scale(1);
 }
 
 
-/* =========================================================
+.toast i{
+
+    color:#00c8ff;
+}
+
+
+/* =====================================================
    MOBILE
-========================================================= */
+===================================================== */
 
 @media(max-width:600px){
 
@@ -1229,81 +1374,154 @@ body::before{
 
         width:92%;
 
-        padding-top:35px;
+        padding-top:28px;
     }
 
 
     .header{
 
-        margin-bottom:32px;
+        margin-bottom:28px;
     }
 
 
     .logo{
 
+        letter-spacing:1px;
+    }
+
+
+    .subtitle{
+
+        font-size:9px;
+
         letter-spacing:2px;
     }
 
 
-    .card{
+    .lightning-line{
 
-        min-height:100px;
-
-        padding:15px;
-
-        border-radius:17px;
+        width:38px;
     }
 
 
-    .icon-box{
+    .section-inner{
 
-        width:56px;
-
-        height:56px;
-
-        flex-basis:56px;
-
-        margin-right:13px;
-
-        border-radius:14px;
-
-        font-size:22px;
+        padding:
+            18px
+            14px
+            15px;
     }
 
 
-    .card-title{
+    .section-title{
 
         font-size:16px;
     }
 
 
+    .section-icon{
+
+        width:41px;
+
+        height:41px;
+
+        border-radius:11px;
+
+        font-size:17px;
+    }
+
+
+    .card{
+
+        min-height:82px;
+
+        padding:12px;
+    }
+
+
+    .card-icon{
+
+        width:47px;
+
+        height:47px;
+
+        flex-basis:47px;
+
+        margin-right:11px;
+
+        border-radius:12px;
+
+        font-size:18px;
+    }
+
+
+    .card-title{
+
+        font-size:14px;
+    }
+
+
     .card-description{
 
-        font-size:11px;
+        font-size:9px;
+    }
+
+
+    .tag{
+
+        font-size:7px;
     }
 
 
     .arrow{
 
-        width:34px;
+        width:31px;
 
-        height:34px;
+        height:31px;
 
-        font-size:15px;
+        flex-basis:31px;
+
+        font-size:10px;
+    }
+
+}
+
+
+/* =====================================================
+   VERY SMALL SCREEN
+===================================================== */
+
+@media(max-width:360px){
+
+    .container{
+
+        width:94%;
     }
 
 
-    .number{
+    .section-inner{
 
-        right:60px;
+        padding-left:11px;
 
-        top:9px;
+        padding-right:11px;
     }
 
 
-    .modal-box{
+    .card-icon{
 
-        padding:23px;
+        width:43px;
+
+        height:43px;
+
+        flex-basis:43px;
+
+        margin-right:9px;
+    }
+
+
+    .card-title{
+
+        font-size:13px;
     }
 
 }
@@ -1318,11 +1536,14 @@ body::before{
 
 
 <!-- =====================================================
-     GRID
+     BACKGROUND
 ===================================================== -->
 
-<div class="grid-bg"></div>
+<div class="grid"></div>
 
+<div class="bg-light one"></div>
+
+<div class="bg-light two"></div>
 
 
 <!-- =====================================================
@@ -1331,21 +1552,14 @@ body::before{
 
 <div class="particles">
 
-    <div class="particle"></div>
-
-    <div class="particle"></div>
-
-    <div class="particle"></div>
-
-    <div class="particle"></div>
-
-    <div class="particle"></div>
-
-    <div class="particle"></div>
-
-    <div class="particle"></div>
-
-    <div class="particle"></div>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
 
 </div>
 
@@ -1365,9 +1579,22 @@ body::before{
     <header class="header">
 
 
+        <div class="lightning">
+
+            <span class="lightning-line"></span>
+
+            <i class="fa-solid fa-bolt lightning-icon"></i>
+
+            <span class="lightning-line right"></span>
+
+        </div>
+
+
         <div class="logo">
 
-            VAIPER<span>X</span>
+            VaiperX
+
+            <span class="crown">♛</span>
 
         </div>
 
@@ -1393,267 +1620,420 @@ body::before{
 
 
     <!-- =================================================
-         SECTION
+         SECTION 1
+         E-SIGN
     ================================================== -->
 
-    <div class="section-title">
+    <section class="section blue-section">
 
-        วิธีใช้งานและติดตั้ง
 
-    </div>
+        <div class="section-inner">
+
+
+            <!-- SECTION HEADER -->
+
+            <div class="section-header">
+
+
+                <div class="section-icon">
+
+                    <i class="fa-solid fa-cloud-arrow-down"></i>
+
+                </div>
+
+
+                <div>
+
+                    <div class="section-title">
+
+                        ช่องสำหรับ แอปลงฟรี
+
+                    </div>
+
+
+                    <div class="section-subtitle">
+
+                        E-SIGN INSTALLATION CENTER
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- MENU -->
+
+            <div class="menu">
+
+
+                <!-- =====================================
+                     BLUE BUTTON 1
+                ====================================== -->
+
+                <div
+                    class="card"
+                    onclick="goTo(
+                        'https://skibiditech.co/',
+                        'กำลังเปิดลิงก์โหลด E-Sign'
+                    )"
+                >
+
+
+                    <div class="card-icon">
+
+                        <i class="fa-solid fa-download"></i>
+
+                    </div>
+
+
+                    <div class="card-content">
+
+                        <div class="card-title">
+
+                            ลิงก์โหลด E-Sign
+
+                        </div>
+
+
+                        <div class="card-description">
+
+                            เข้าสู่หน้าสำหรับดาวน์โหลด E-Sign
+
+                        </div>
+
+
+                        <span class="tag">
+
+                            DOWNLOAD E-SIGN
+
+                        </span>
+
+                    </div>
+
+
+                    <div class="arrow">
+
+                        <i class="fa-solid fa-chevron-right"></i>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- =====================================
+                     BLUE BUTTON 2
+                ====================================== -->
+
+                <div
+                    class="card"
+                    onclick="goTo(
+                        'https://youtu.be/E8g6eto6ygg?si=vP_qKiYfjEgU7FC-',
+                        'กำลังเปิดวิธีสอนติดตั้ง E-Sign และพาแนล'
+                    )"
+                >
+
+
+                    <div class="card-icon">
+
+                        <i class="fa-solid fa-circle-play"></i>
+
+                    </div>
+
+
+                    <div class="card-content">
+
+                        <div class="card-title">
+
+                            สอนติดตั้ง E-Sign และ สอนติดตั้งพาแนล
+
+                        </div>
+
+
+                        <div class="card-description">
+
+                            ดูวิดีโอวิธีติดตั้งแบบละเอียด
+
+                        </div>
+
+
+                        <span class="tag">
+
+                            INSTALL TUTORIAL
+
+                        </span>
+
+                    </div>
+
+
+                    <div class="arrow">
+
+                        <i class="fa-solid fa-chevron-right"></i>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- =====================================
+                     BLUE BUTTON 3
+                ====================================== -->
+
+                <div
+                    class="card"
+                    onclick="goTo(
+                        'https://www.mediafire.com/file/8y17woeyt1hyr2n/VIPERXMOD+v1.ipa/file',
+                        'กำลังเปิดลิงก์พาแนลสำหรับ E-Sign'
+                    )"
+                >
+
+
+                    <div class="card-icon">
+
+                        <i class="fa-solid fa-bolt"></i>
+
+                    </div>
+
+
+                    <div class="card-content">
+
+                        <div class="card-title">
+
+                            ลิงก์พาแนลสำหรับ E-Sign
+
+                        </div>
+
+
+                        <div class="card-description">
+
+                            ดาวน์โหลด VIPERXMOD v1.ipa
+
+                        </div>
+
+
+                        <span class="tag">
+
+                            VIPERXMOD V1
+
+                        </span>
+
+                    </div>
+
+
+                    <div class="arrow">
+
+                        <i class="fa-solid fa-chevron-right"></i>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- SECTION FOOTER -->
+
+            <div class="section-footer">
+
+                <i class="fa-solid fa-shield-halved"></i>
+
+                E-SIGN ACCESS
+
+            </div>
+
+
+        </div>
+
+    </section>
 
 
 
     <!-- =================================================
-         MENU
+         SECTION 2
+         GBOX
     ================================================== -->
 
-    <section class="menu">
+    <section class="section green-section">
 
 
-
-        <!-- =============================================
-             BUTTON 1
-             G BOX
-        ============================================== -->
-
-        <div
-            class="card"
-            onclick="openLink(
-                'https://drive.google.com/file/d/1pmfSY738bDitOcfH8lU8gqsdK2A6PFAq/view?usp=drivesdk',
-                'video'
-            )"
-        >
-
-            <div class="number">
-                01
-            </div>
+        <div class="section-inner">
 
 
-            <div class="icon-box">
+            <!-- SECTION HEADER -->
 
-                <i class="fa-solid fa-circle-play"></i>
-
-            </div>
+            <div class="section-header">
 
 
-            <div class="card-content">
+                <div class="section-icon">
 
-                <div class="card-title">
-
-                    คลิปสอนติดตั้งผ่าน G Box
+                    <i class="fa-solid fa-box-open"></i>
 
                 </div>
 
 
-                <div class="card-description">
+                <div>
 
-                    ดูขั้นตอนการติดตั้งแบบละเอียด
-                    ผ่าน G Box ได้ง่าย ๆ
+                    <div class="section-title">
+
+                        ช่องสำหรับ GBox
+
+                    </div>
+
+
+                    <div class="section-subtitle">
+
+                        GBOX INSTALLATION CENTER
+
+                    </div>
 
                 </div>
 
 
-                <span class="badge">
+            </div>
 
-                    VIDEO TUTORIAL
 
-                </span>
+
+            <!-- MENU -->
+
+            <div class="menu">
+
+
+                <!-- =====================================
+                     GREEN BUTTON 1
+                ====================================== -->
+
+                <div
+                    class="card"
+                    onclick="goTo(
+                        'https://youtube.com/shorts/_EGL9jUhoUs?si=8prYTcBrOcUl-H1z',
+                        'กำลังเปิดคลิปสอนติดตั้งผ่าน GBox'
+                    )"
+                >
+
+
+                    <div class="card-icon">
+
+                        <i class="fa-solid fa-circle-play"></i>
+
+                    </div>
+
+
+                    <div class="card-content">
+
+                        <div class="card-title">
+
+                            คลิปสอนติดตั้งผ่าน GBox
+
+                        </div>
+
+
+                        <div class="card-description">
+
+                            ดูขั้นตอนการติดตั้งผ่าน GBox
+
+                        </div>
+
+
+                        <span class="tag">
+
+                            GBOX TUTORIAL
+
+                        </span>
+
+                    </div>
+
+
+                    <div class="arrow">
+
+                        <i class="fa-solid fa-chevron-right"></i>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- =====================================
+                     GREEN BUTTON 2
+                ====================================== -->
+
+                <div
+                    class="card"
+                    onclick="goTo(
+                        'https://drive.google.com/file/d/18pmmOhQ22XyGYKAVuwyeWpkwoCl5oTzU/view?usp=drivesdk',
+                        'กำลังเปิดลิงก์พาแนลสำหรับ GBox'
+                    )"
+                >
+
+
+                    <div class="card-icon">
+
+                        <i class="fa-solid fa-link"></i>
+
+                    </div>
+
+
+                    <div class="card-content">
+
+                        <div class="card-title">
+
+                            ลิงก์พาแนลสำหรับ GBox
+
+                        </div>
+
+
+                        <div class="card-description">
+
+                            เข้าสู่ลิงก์พาแนลสำหรับ GBox
+
+                        </div>
+
+
+                        <span class="tag">
+
+                            GBOX PANEL
+
+                        </span>
+
+                    </div>
+
+
+                    <div class="arrow">
+
+                        <i class="fa-solid fa-chevron-right"></i>
+
+                    </div>
+
+
+                </div>
+
 
             </div>
 
 
-            <div class="arrow">
 
-                <i class="fa-solid fa-chevron-right"></i>
+            <!-- SECTION FOOTER -->
+
+            <div class="section-footer">
+
+                <i class="fa-solid fa-circle-check"></i>
+
+                GBOX ACCESS
 
             </div>
+
 
         </div>
-
-
-
-        <!-- =============================================
-             BUTTON 2
-             FREE INSTALL
-        ============================================== -->
-
-        <div
-            class="card"
-            onclick="openLink(
-                'https://drive.google.com/file/d/1gVvRRnxBPkp9fGFJSsKp-7Z0rIh7mRc7/view?usp=sharing',
-                'guide'
-            )"
-        >
-
-            <div class="number">
-                02
-            </div>
-
-
-            <div class="icon-box">
-
-                <i class="fa-solid fa-mobile-screen-button"></i>
-
-            </div>
-
-
-            <div class="card-content">
-
-                <div class="card-title">
-
-                    สอนติดตั้งแอปลงฟรี
-
-                </div>
-
-
-                <div class="card-description">
-
-                    คู่มือสำหรับติดตั้งแอป
-                    พร้อมขั้นตอนแบบเข้าใจง่าย
-
-                </div>
-
-
-                <span class="badge">
-
-                    FREE INSTALL
-
-                </span>
-
-            </div>
-
-
-            <div class="arrow">
-
-                <i class="fa-solid fa-chevron-right"></i>
-
-            </div>
-
-        </div>
-
-
-
-        <!-- =============================================
-             BUTTON 3
-             PANEL
-        ============================================== -->
-
-        <div
-            class="card"
-            onclick="openLink(
-                'https://www.mediafire.com/file/8y17woeyt1hyr2n/VIPERXMOD+v1.ipa/file',
-                'panel'
-            )"
-        >
-
-            <div class="number">
-                03
-            </div>
-
-
-            <div class="icon-box">
-
-                <i class="fa-solid fa-bolt"></i>
-
-            </div>
-
-
-            <div class="card-content">
-
-                <div class="card-title">
-
-                    ลิงก์พาแนล
-
-                </div>
-
-
-                <div class="card-description">
-
-                    ดาวน์โหลด VIPERXMOD v1.ipa
-                    สำหรับเริ่มใช้งาน
-
-                </div>
-
-
-                <span class="badge">
-
-                    PANEL ACCESS
-
-                </span>
-
-            </div>
-
-
-            <div class="arrow">
-
-                <i class="fa-solid fa-chevron-right"></i>
-
-            </div>
-
-        </div>
-
-
-
-        <!-- =============================================
-             BUTTON 4
-             DOWNLOAD
-        ============================================== -->
-
-        <div
-            class="card"
-            onclick="openLink(
-                'https://skibiditech.co/',
-                'download'
-            )"
-        >
-
-            <div class="number">
-                04
-            </div>
-
-
-            <div class="icon-box">
-
-                <i class="fa-solid fa-download"></i>
-
-            </div>
-
-
-            <div class="card-content">
-
-                <div class="card-title">
-
-                    ดาวน์โหลดแอปลงฟรี
-
-                </div>
-
-
-                <div class="card-description">
-
-                    ดาวน์โหลดแอปสำหรับติดตั้ง
-                    ใช้งานได้ฟรี พร้อมขั้นตอนที่เข้าใจง่าย
-
-                </div>
-
-
-                <span class="badge">
-
-                    FREE DOWNLOAD
-
-                </span>
-
-            </div>
-
-
-            <div class="arrow">
-
-                <i class="fa-solid fa-chevron-right"></i>
-
-            </div>
-
-        </div>
-
 
     </section>
 
@@ -1671,7 +2051,7 @@ body::before{
 
         <strong>
 
-            Premium Gaming Interface
+            PREMIUM GAMING INTERFACE
 
         </strong>
 
@@ -1679,80 +2059,6 @@ body::before{
 
 
 </main>
-
-
-
-<!-- =====================================================
-     MODAL
-===================================================== -->
-
-<div
-    class="modal"
-    id="modal"
->
-
-
-    <div class="modal-box">
-
-
-        <div
-            class="modal-icon"
-            id="modalIcon"
-        >
-
-            <i class="fa-solid fa-bolt"></i>
-
-        </div>
-
-
-        <div
-            class="modal-title"
-            id="modalTitle"
-        >
-
-            เปิดลิงก์
-
-        </div>
-
-
-        <div
-            class="modal-text"
-            id="modalText"
-        >
-
-            คุณกำลังเข้าสู่หน้าที่เลือก
-
-        </div>
-
-
-        <div class="modal-actions">
-
-
-            <button
-                class="modal-button cancel"
-                onclick="closeModal()"
-            >
-
-                ยกเลิก
-
-            </button>
-
-
-            <button
-                class="modal-button confirm"
-                onclick="confirmLink()"
-            >
-
-                เปิดเลย
-
-            </button>
-
-
-        </div>
-
-    </div>
-
-</div>
 
 
 
@@ -1765,7 +2071,13 @@ body::before{
     id="toast"
 >
 
-    กำลังเปิดลิงก์...
+    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+    <span id="toastText">
+
+        กำลังเปิดลิงก์...
+
+    </span>
 
 </div>
 
@@ -1773,170 +2085,34 @@ body::before{
 
 <script>
 
-/* =========================================================
-   CURRENT LINK
-========================================================= */
-
-let currentLink = "";
-
-
-
-/* =========================================================
+/* =====================================================
    OPEN LINK
-========================================================= */
+===================================================== */
 
-function openLink(url, type){
+function goTo(url, message){
 
-    currentLink = url;
+    const toast =
+        document.getElementById("toast");
 
-
-    const modal =
-        document.getElementById("modal");
-
-
-    const title =
-        document.getElementById("modalTitle");
+    const toastText =
+        document.getElementById("toastText");
 
 
-    const text =
-        document.getElementById("modalText");
+    toastText.textContent =
+        message;
 
 
-    const icon =
-        document.getElementById("modalIcon");
-
-
-
-    /* =====================================================
-       BUTTON 1
-    ===================================================== */
-
-    if(type === "video"){
-
-        icon.innerHTML =
-            '<i class="fa-solid fa-circle-play"></i>';
-
-        title.textContent =
-            "คลิปสอนติดตั้งผ่าน G Box";
-
-        text.textContent =
-            "ต้องการเปิดคลิปสอนติดตั้งผ่าน G Box ใช่หรือไม่?";
-
-    }
-
-
-
-    /* =====================================================
-       BUTTON 2
-    ===================================================== */
-
-    else if(type === "guide"){
-
-        icon.innerHTML =
-            '<i class="fa-solid fa-mobile-screen-button"></i>';
-
-        title.textContent =
-            "สอนติดตั้งแอปลงฟรี";
-
-        text.textContent =
-            "เปิดคู่มือสำหรับดูขั้นตอนการติดตั้งแอป";
-
-    }
-
-
-
-    /* =====================================================
-       BUTTON 3
-    ===================================================== */
-
-    else if(type === "panel"){
-
-        icon.innerHTML =
-            '<i class="fa-solid fa-bolt"></i>';
-
-        title.textContent =
-            "ลิงก์พาแนล";
-
-        text.textContent =
-            "กำลังเข้าสู่หน้าดาวน์โหลด VIPERXMOD v1.ipa";
-
-    }
-
-
-
-    /* =====================================================
-       BUTTON 4
-    ===================================================== */
-
-    else if(type === "download"){
-
-        icon.innerHTML =
-            '<i class="fa-solid fa-download"></i>';
-
-        title.textContent =
-            "ดาวน์โหลดแอปลงฟรี";
-
-        text.textContent =
-            "ต้องการเข้าสู่หน้าดาวน์โหลดแอปใช่หรือไม่?";
-
-    }
-
-
-    modal.classList.add("active");
-
-}
-
-
-
-/* =========================================================
-   CONFIRM
-========================================================= */
-
-function confirmLink(){
-
-    closeModal();
-
-    showToast();
+    toast.classList.add("show");
 
 
     setTimeout(function(){
 
         window.open(
-            currentLink,
+            url,
             "_blank"
         );
 
-    },500);
-
-}
-
-
-
-/* =========================================================
-   CLOSE MODAL
-========================================================= */
-
-function closeModal(){
-
-    document
-        .getElementById("modal")
-        .classList.remove("active");
-
-}
-
-
-
-/* =========================================================
-   TOAST
-========================================================= */
-
-function showToast(){
-
-    const toast =
-        document.getElementById("toast");
-
-
-    toast.classList.add("show");
+    },300);
 
 
     setTimeout(function(){
@@ -1948,47 +2124,31 @@ function showToast(){
 }
 
 
+/* =====================================================
+   PREVENT DOUBLE CLICK
+===================================================== */
 
-/* =========================================================
-   CLICK OUTSIDE
-========================================================= */
+let clickLock = false;
 
-document
-    .getElementById("modal")
-    .addEventListener(
-        "click",
-        function(event){
-
-            if(
-                event.target === this
-            ){
-
-                closeModal();
-
-            }
-
-        }
-    );
-
-
-
-/* =========================================================
-   ESC KEY
-========================================================= */
 
 document.addEventListener(
-    "keydown",
-    function(event){
+    "click",
+    function(){
 
-        if(
-            event.key === "Escape"
-        ){
-
-            closeModal();
-
+        if(clickLock){
+            return;
         }
 
-    }
+        clickLock = true;
+
+        setTimeout(function(){
+
+            clickLock = false;
+
+        },450);
+
+    },
+    true
 );
 
 </script>
