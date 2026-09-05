@@ -1,48 +1,19 @@
 <!DOCTYPE html>
 <html lang="th">
-
 <head>
-
 <meta charset="UTF-8">
-
-<meta name="viewport"
-      content="width=device-width,
-      initial-scale=1.0,
-      maximum-scale=1.0,
-      user-scalable=no,
-      viewport-fit=cover">
-
-<meta name="theme-color" content="#020303">
-
-<title>VaiperX Installation Center</title>
-
-
-<!-- =====================================================
-     GOOGLE FONTS
-===================================================== -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VaiperX 👑</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link
-href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&family=Orbitron:wght@500;600;700;800;900&display=swap"
-rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800&family=Orbitron:wght@500;600;700;800;900&display=swap" rel="stylesheet">
 
-
-<!-- =====================================================
-     FONT AWESOME SOLID
-===================================================== -->
-
-<link
-rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
->
-
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 <style>
-
-/* =====================================================
-   RESET
-===================================================== */
 
 *{
     margin:0;
@@ -51,92 +22,67 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     -webkit-tap-highlight-color:transparent;
 }
 
-html{
-    scroll-behavior:smooth;
+:root{
+    --bg:#03070d;
+    --blue:#00c8ff;
+    --green:#00ff91;
+    --red:#ff1738;
 }
 
 body{
-
     min-height:100vh;
 
-    background:#020303;
+    background:
+        radial-gradient(
+            circle at 15% 15%,
+            rgba(0,200,255,.10),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 85% 30%,
+            rgba(0,255,145,.08),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 50% 100%,
+            rgba(255,23,56,.07),
+            transparent 35%
+        ),
+        #03070d;
 
     color:#fff;
 
     font-family:'Kanit',sans-serif;
 
     overflow-x:hidden;
+
+    position:relative;
 }
 
 
-/* =====================================================
-   BACKGROUND
-===================================================== */
+/* =========================
+   CYBER GRID
+========================= */
 
 body::before{
-
     content:"";
 
     position:fixed;
 
     inset:0;
 
-    z-index:-10;
-
-    background:
-
-        radial-gradient(
-            circle at 50% 0%,
-            rgba(0,190,255,.13),
-            transparent 28%
-        ),
-
-        radial-gradient(
-            circle at 10% 70%,
-            rgba(0,255,140,.06),
-            transparent 30%
-        ),
-
-        radial-gradient(
-            circle at 90% 80%,
-            rgba(0,150,255,.06),
-            transparent 30%
-        ),
-
-        #020303;
-}
-
-
-/* =====================================================
-   CYBER GRID
-===================================================== */
-
-.grid{
-
-    position:fixed;
-
-    inset:0;
-
-    z-index:-9;
-
-    pointer-events:none;
-
-    opacity:.5;
-
     background-image:
-
         linear-gradient(
-            rgba(0,190,255,.025) 1px,
+            rgba(255,255,255,.025) 1px,
             transparent 1px
         ),
-
         linear-gradient(
             90deg,
-            rgba(0,190,255,.025) 1px,
+            rgba(255,255,255,.025) 1px,
             transparent 1px
         );
 
-    background-size:42px 42px;
+    background-size:40px 40px;
 
     mask-image:
         linear-gradient(
@@ -144,249 +90,286 @@ body::before{
             black,
             transparent 90%
         );
+
+    pointer-events:none;
+
+    z-index:0;
 }
 
 
-/* =====================================================
-   MOVING LIGHTS
-===================================================== */
+/* =========================
+   BACKGROUND GLOW
+========================= */
 
-.bg-light{
-
+.glow{
     position:fixed;
 
     width:350px;
-
     height:350px;
 
     border-radius:50%;
 
     filter:blur(100px);
 
+    opacity:.14;
+
     pointer-events:none;
 
-    z-index:-8;
-
-    opacity:.12;
-
-    animation:moveLight 12s ease-in-out infinite;
+    z-index:0;
 }
 
-.bg-light.one{
-
-    background:#00bfff;
-
-    top:-180px;
-
+.glow.blue{
+    background:var(--blue);
+    top:-150px;
     left:-120px;
 }
 
-.bg-light.two{
+.glow.green{
+    background:var(--green);
+    right:-150px;
+    top:35%;
+}
 
-    background:#00ff91;
-
+.glow.red{
+    background:var(--red);
     bottom:-180px;
-
-    right:-120px;
-
-    animation-delay:-5s;
+    left:35%;
 }
 
 
-@keyframes moveLight{
-
-    0%,
-    100%{
-        transform:translate(0,0);
-    }
-
-    50%{
-        transform:translate(60px,40px);
-    }
-}
-
-
-/* =====================================================
+/* =========================
    PARTICLES
-===================================================== */
+========================= */
 
 .particles{
-
     position:fixed;
-
     inset:0;
 
     overflow:hidden;
 
     pointer-events:none;
 
-    z-index:-5;
+    z-index:0;
 }
 
-
-.particle{
-
+.particles span{
     position:absolute;
 
     width:2px;
-
     height:2px;
-
-    border-radius:50%;
 
     background:#fff;
 
-    box-shadow:
-        0 0 8px #00c8ff;
+    border-radius:50%;
+
+    opacity:.5;
 
     animation:
-        particleMove
+        floatParticle
         linear
         infinite;
 }
 
-
-.particle:nth-child(1){
+.particles span:nth-child(1){
     left:8%;
-    bottom:-10px;
-    animation-duration:11s;
-}
-
-.particle:nth-child(2){
-    left:19%;
-    bottom:-20px;
+    top:30%;
     animation-duration:8s;
 }
 
-.particle:nth-child(3){
-    left:32%;
-    bottom:-15px;
-    animation-duration:14s;
+.particles span:nth-child(2){
+    left:18%;
+    top:70%;
+    animation-duration:11s;
 }
 
-.particle:nth-child(4){
-    left:45%;
-    bottom:-20px;
-    animation-duration:10s;
-}
-
-.particle:nth-child(5){
-    left:57%;
-    bottom:-10px;
-    animation-duration:13s;
-}
-
-.particle:nth-child(6){
-    left:68%;
-    bottom:-20px;
+.particles span:nth-child(3){
+    left:30%;
+    top:15%;
     animation-duration:9s;
 }
 
-.particle:nth-child(7){
-    left:81%;
-    bottom:-15px;
+.particles span:nth-child(4){
+    left:42%;
+    top:80%;
     animation-duration:12s;
 }
 
-.particle:nth-child(8){
-    left:93%;
-    bottom:-20px;
-    animation-duration:15s;
+.particles span:nth-child(5){
+    left:55%;
+    top:25%;
+    animation-duration:10s;
 }
 
+.particles span:nth-child(6){
+    left:68%;
+    top:65%;
+    animation-duration:9s;
+}
 
-@keyframes particleMove{
+.particles span:nth-child(7){
+    left:78%;
+    top:18%;
+    animation-duration:13s;
+}
+
+.particles span:nth-child(8){
+    left:90%;
+    top:75%;
+    animation-duration:10s;
+}
+
+@keyframes floatParticle{
 
     0%{
-
         transform:
             translateY(0)
-            scale(.5);
+            scale(.7);
 
         opacity:0;
     }
 
-    15%{
-        opacity:1;
+    20%{
+        opacity:.6;
     }
 
-    85%{
-        opacity:.7;
+    50%{
+        transform:
+            translateY(-70px)
+            scale(1);
     }
 
     100%{
-
         transform:
-            translateY(-110vh)
-            scale(1.3);
+            translateY(-150px)
+            scale(.4);
 
         opacity:0;
     }
 }
 
 
-/* =====================================================
-   MAIN
-===================================================== */
+/* =========================
+   CONTAINER
+========================= */
 
 .container{
+    position:relative;
 
-    width:min(820px,92%);
+    z-index:2;
+
+    width:min(720px,92%);
 
     margin:auto;
 
     padding:
-        35px
+        32px
         0
-        65px;
+        50px;
 }
 
 
-/* =====================================================
-   VAIPERX HEADER
-===================================================== */
+/* =========================
+   HEADER
+========================= */
 
 .header{
-
     text-align:center;
 
-    margin-bottom:38px;
+    margin-bottom:30px;
+}
+
+.logo{
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-family:'Orbitron',sans-serif;
+
+    font-size:
+        clamp(
+            32px,
+            9vw,
+            48px
+        );
+
+    font-weight:900;
+
+    letter-spacing:2px;
+
+    color:#fff;
+
+    text-shadow:
+        0 0 5px #fff,
+        0 0 15px rgba(0,200,255,.9),
+        0 0 35px rgba(0,200,255,.5);
 
     animation:
-        headerIn
-        .8s
-        ease;
+        logoPulse
+        2.5s
+        ease-in-out
+        infinite;
+}
+
+.logo .crown{
+    margin-left:8px;
+
+    filter:
+        drop-shadow(
+            0 0 5px
+            #ffd700
+        )
+        drop-shadow(
+            0 0 15px
+            #ff9d00
+        );
+
+    animation:
+        crownPulse
+        1.5s
+        ease-in-out
+        infinite;
+}
+
+@keyframes logoPulse{
+
+    0%,
+    100%{
+        text-shadow:
+            0 0 5px #fff,
+            0 0 15px rgba(0,200,255,.8),
+            0 0 30px rgba(0,200,255,.4);
+    }
+
+    50%{
+        text-shadow:
+            0 0 8px #fff,
+            0 0 25px rgba(0,200,255,1),
+            0 0 50px rgba(0,200,255,.7);
+    }
+}
+
+@keyframes crownPulse{
+
+    0%,
+    100%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:
+            scale(1.12)
+            rotate(-3deg);
+    }
 }
 
 
-@keyframes headerIn{
-
-    from{
-
-        opacity:0;
-
-        transform:
-            translateY(-25px)
-            scale(.96);
-    }
-
-    to{
-
-        opacity:1;
-
-        transform:
-            translateY(0)
-            scale(1);
-    }
-}
-
-
-/* =====================================================
-   LIGHTNING DECORATION
-===================================================== */
+/* =========================
+   LIGHTNING
+========================= */
 
 .lightning{
-
     display:flex;
 
     align-items:center;
@@ -395,12 +378,10 @@ body::before{
 
     gap:12px;
 
-    margin-bottom:5px;
+    margin-top:7px;
 }
 
-
 .lightning-line{
-
     width:65px;
 
     height:1px;
@@ -409,401 +390,389 @@ body::before{
         linear-gradient(
             90deg,
             transparent,
-            #00c8ff
+            var(--blue),
+            #fff,
+            var(--blue),
+            transparent
         );
 
     box-shadow:
-        0 0 10px #00c8ff;
+        0 0 10px
+        var(--blue);
 }
 
+.lightning i{
+    color:#fff;
 
-.lightning-line.right{
-
-    background:
-        linear-gradient(
-            90deg,
-            #00c8ff,
-            transparent
-        );
-}
-
-
-.lightning-icon{
-
-    color:#6de7ff;
-
-    font-size:19px;
+    font-size:14px;
 
     filter:
-
         drop-shadow(
-            0 0 5px #00c8ff
+            0 0 5px
+            var(--blue)
         )
-
         drop-shadow(
-            0 0 14px #00c8ff
+            0 0 12px
+            var(--blue)
         );
 
     animation:
-        lightningPulse
-        1.2s
-        infinite;
+        zap
+        .7s
+        infinite
+        alternate;
 }
 
+@keyframes zap{
 
-@keyframes lightningPulse{
+    from{
+        opacity:.5;
 
-    0%,
-    100%{
+        transform:
+            scale(.85);
+    }
+
+    to{
         opacity:1;
-        transform:scale(1);
-    }
 
-    45%{
-        opacity:.65;
-        transform:scale(.92);
-    }
-
-    50%{
-        opacity:1;
-        transform:scale(1.1);
+        transform:
+            scale(1.15);
     }
 }
 
 
-/* =====================================================
-   LOGO
-===================================================== */
-
-.logo{
-
-    font-family:'Orbitron',sans-serif;
-
-    font-size:
-        clamp(
-            38px,
-            10vw,
-            70px
-        );
-
-    font-weight:900;
-
-    letter-spacing:3px;
-
-    background:
-
-        linear-gradient(
-            180deg,
-            #ffffff 5%,
-            #b9f4ff 35%,
-            #24cfff 70%,
-            #008dff 100%
-        );
-
-    -webkit-background-clip:text;
-
-    background-clip:text;
-
-    color:transparent;
-
-    filter:
-
-        drop-shadow(
-            0 0 5px
-            rgba(0,195,255,.9)
-        )
-
-        drop-shadow(
-            0 0 20px
-            rgba(0,180,255,.5)
-        )
-
-        drop-shadow(
-            0 0 45px
-            rgba(0,130,255,.2)
-        );
-}
-
-
-.crown{
-
-    display:inline-block;
-
-    color:#ffd84d;
-
-    margin-left:5px;
-
-    font-size:.7em;
-
-    filter:
-
-        drop-shadow(
-            0 0 5px
-            rgba(255,210,50,.9)
-        )
-
-        drop-shadow(
-            0 0 15px
-            rgba(255,190,0,.5)
-        );
-
-    animation:
-        crownFloat
-        2s
-        ease-in-out
-        infinite;
-}
-
-
-@keyframes crownFloat{
-
-    0%,
-    100%{
-        transform:translateY(0) rotate(-3deg);
-    }
-
-    50%{
-        transform:translateY(-4px) rotate(3deg);
-    }
-}
-
-
-/* =====================================================
-   SUBTITLE
-===================================================== */
+/* =========================
+   HEADER TEXT
+========================= */
 
 .subtitle{
+    margin-top:12px;
 
-    margin-top:7px;
+    color:#8998aa;
 
-    color:#7f8b91;
+    font-size:14px;
 
-    font-size:12px;
-
-    letter-spacing:3px;
-
-    text-transform:uppercase;
+    letter-spacing:.5px;
 }
 
-
-/* =====================================================
-   STATUS
-===================================================== */
-
 .status{
-
     display:inline-flex;
 
     align-items:center;
 
-    gap:8px;
+    gap:7px;
 
     margin-top:15px;
 
     padding:
         6px
-        14px;
-
-    border-radius:30px;
-
-    background:
-        rgba(0,190,255,.035);
+        13px;
 
     border:
         1px solid
-        rgba(0,190,255,.22);
+        rgba(0,200,255,.25);
 
-    color:#6edfff;
+    border-radius:999px;
 
-    font-size:10px;
+    background:
+        rgba(0,200,255,.05);
 
-    letter-spacing:1px;
+    color:#9deaff;
 
-    box-shadow:
-        0 0 20px
-        rgba(0,190,255,.05);
+    font-size:11px;
 }
 
-
 .status-dot{
-
     width:6px;
-
     height:6px;
 
     border-radius:50%;
 
-    background:#00d9ff;
+    background:#00ff91;
 
     box-shadow:
-        0 0 6px #00d9ff,
-        0 0 14px #00d9ff;
+        0 0 6px #00ff91,
+        0 0 12px #00ff91;
 
     animation:
-        statusPulse
-        1.4s
+        statusBlink
+        1s
         infinite;
 }
 
-
-@keyframes statusPulse{
+@keyframes statusBlink{
 
     50%{
         opacity:.35;
-        transform:scale(.65);
     }
 }
 
 
-/* =====================================================
+/* =========================
    SECTION
-===================================================== */
+========================= */
 
 .section{
-
     position:relative;
 
-    margin-bottom:25px;
+    margin-top:24px;
 
     padding:2px;
 
-    border-radius:25px;
+    border-radius:22px;
 
     overflow:hidden;
-
-    isolation:isolate;
 }
 
-
-/* =====================================================
-   MOVING BORDER
-===================================================== */
-
 .section::before{
-
     content:"";
 
     position:absolute;
 
-    inset:-60%;
-
-    z-index:-2;
+    inset:-50%;
 
     background:
-
         conic-gradient(
             from 0deg,
             transparent 0deg,
-            transparent 55deg,
-            var(--accent) 85deg,
-            #fff 95deg,
-            var(--accent) 105deg,
-            transparent 135deg,
+            transparent 90deg,
+            var(--accent) 150deg,
+            #fff 180deg,
+            var(--accent) 210deg,
+            transparent 270deg,
             transparent 360deg
         );
 
     animation:
         rotateBorder
-        3.2s
+        4s
         linear
         infinite;
 }
 
-
 @keyframes rotateBorder{
 
     to{
-        transform:rotate(360deg);
+        transform:
+            rotate(360deg);
     }
 }
 
-
-/* =====================================================
-   SECTION INNER
-===================================================== */
-
 .section-inner{
-
     position:relative;
 
-    border-radius:23px;
+    z-index:2;
 
-    padding:23px 20px 20px;
+    border-radius:20px;
+
+    padding:
+        22px
+        18px
+        18px;
 
     background:
-
         linear-gradient(
             145deg,
-            rgba(12,15,17,.97),
-            rgba(3,5,6,.98)
+            rgba(10,20,32,.97),
+            rgba(3,8,14,.98)
         );
 
     border:
         1px solid
-        rgba(255,255,255,.055);
-
-    box-shadow:
-
-        inset
-        0 1px 0
-        rgba(255,255,255,.04),
-
-        0 20px 60px
-        rgba(0,0,0,.55);
+        rgba(255,255,255,.06);
 }
 
 
-/* =====================================================
-   BLUE SECTION
-===================================================== */
+/* =========================
+   SECTION HEAD
+========================= */
 
-.blue-section{
-
-    --accent:#00c8ff;
-
-    box-shadow:
-        0 0 35px
-        rgba(0,190,255,.08);
-}
-
-
-/* =====================================================
-   GREEN SECTION
-===================================================== */
-
-.green-section{
-
-    --accent:#00ff91;
-
-    box-shadow:
-        0 0 35px
-        rgba(0,255,130,.08);
-}
-
-
-/* =====================================================
-   SECTION HEADER
-===================================================== */
-
-.section-header{
-
+.section-head{
     display:flex;
 
     align-items:center;
 
     gap:13px;
 
-    margin-bottom:18px;
+    margin-bottom:17px;
+}
+
+.section-icon{
+    width:42px;
+    height:42px;
+
+    flex:0 0 42px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:12px;
+
+    color:var(--accent);
+
+    background:
+        rgba(255,255,255,.035);
+
+    border:
+        1px solid
+        color-mix(
+            in srgb,
+            var(--accent) 35%,
+            transparent
+        );
+
+    box-shadow:
+        0 0 18px
+        color-mix(
+            in srgb,
+            var(--accent) 18%,
+            transparent
+        );
+}
+
+.section-icon i{
+    font-size:18px;
+
+    filter:
+        drop-shadow(
+            0 0 6px
+            var(--accent)
+        );
+}
+
+.section-title{
+    font-size:18px;
+
+    font-weight:700;
+}
+
+.section-title small{
+    display:block;
+
+    margin-top:1px;
+
+    font-size:11px;
+
+    font-weight:400;
+
+    color:#718092;
 }
 
 
-.section-icon{
+/* =========================
+   CARD
+========================= */
 
-    width:45px;
+.card{
+    position:relative;
 
-    height:45px;
+    display:flex;
 
-    flex-shrink:0;
+    align-items:center;
+
+    gap:14px;
+
+    width:100%;
+
+    padding:15px;
+
+    margin-top:11px;
+
+    border-radius:15px;
+
+    text-decoration:none;
+
+    color:#fff;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.045),
+            rgba(255,255,255,.018)
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,.075);
+
+    overflow:hidden;
+
+    transition:
+        transform .25s ease,
+        border-color .25s ease,
+        box-shadow .25s ease;
+
+    cursor:pointer;
+}
+
+.card::before{
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:-120%;
+
+    width:100%;
+
+    height:100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.08),
+            transparent
+        );
+
+    transition:.5s;
+}
+
+.card:hover::before{
+    left:120%;
+}
+
+.card:hover{
+    transform:
+        translateY(-2px);
+
+    border-color:
+        color-mix(
+            in srgb,
+            var(--accent) 55%,
+            transparent
+        );
+
+    box-shadow:
+        0 0 25px
+        color-mix(
+            in srgb,
+            var(--accent) 14%,
+            transparent
+        );
+}
+
+.card:active{
+    transform:scale(.98);
+}
+
+
+/* =========================
+   CARD ICON
+========================= */
+
+.card-icon{
+    flex:
+        0 0
+        46px;
+
+    width:46px;
+
+    height:46px;
 
     display:flex;
 
@@ -813,238 +782,85 @@ body::before{
 
     border-radius:13px;
 
-    font-size:19px;
-
-    border:
-        1px solid
-        var(--accent);
-
-    color:
-        var(--accent);
-
     background:
         color-mix(
             in srgb,
-            var(--accent) 8%,
+            var(--accent) 9%,
             transparent
         );
 
-    box-shadow:
-
-        0 0 18px
+    border:
+        1px solid
         color-mix(
             in srgb,
-            var(--accent) 18%,
+            var(--accent) 25%,
             transparent
         );
 
-    transition:.3s ease;
+    color:
+        var(--accent);
+}
+
+.card-icon i{
+    font-size:19px;
+
+    filter:
+        drop-shadow(
+            0 0 6px
+            var(--accent)
+        );
 }
 
 
-.section-title{
+/* =========================
+   CARD CONTENT
+========================= */
 
-    font-size:19px;
+.card-content{
+    flex:1;
+
+    min-width:0;
+}
+
+.card-title{
+    font-size:15px;
 
     font-weight:600;
 
-    color:#fff;
+    line-height:1.35;
 }
 
+.card-description{
+    margin-top:3px;
 
-.section-subtitle{
-
-    color:#697176;
+    color:#778698;
 
     font-size:11px;
 
-    margin-top:1px;
+    line-height:1.4;
 }
 
+.card-tag{
+    display:inline-block;
 
-/* =====================================================
-   MENU
-===================================================== */
-
-.menu{
-
-    display:grid;
-
-    gap:12px;
-}
-
-
-/* =====================================================
-   BUTTON CARD
-===================================================== */
-
-.card{
-
-    position:relative;
-
-    display:flex;
-
-    align-items:center;
-
-    min-height:88px;
+    margin-top:7px;
 
     padding:
-        14px
-        15px;
+        2px
+        7px;
 
-    border-radius:17px;
+    border-radius:5px;
 
-    background:
+    font-family:'Orbitron',sans-serif;
 
-        linear-gradient(
-            110deg,
-            rgba(255,255,255,.045),
-            rgba(255,255,255,.012)
-        );
+    font-size:7px;
 
-    border:
-        1px solid
-        rgba(255,255,255,.065);
-
-    overflow:hidden;
-
-    cursor:pointer;
-
-    transition:
-
-        transform .25s ease,
-
-        border-color .25s ease,
-
-        background .25s ease,
-
-        box-shadow .25s ease;
-}
-
-
-/* =====================================================
-   CARD LIGHT
-===================================================== */
-
-.card::before{
-
-    content:"";
-
-    position:absolute;
-
-    left:-130%;
-
-    top:0;
-
-    width:70%;
-
-    height:100%;
-
-    transform:
-        skewX(-20deg);
-
-    background:
-
-        linear-gradient(
-            90deg,
-            transparent,
-            color-mix(
-                in srgb,
-                var(--accent) 13%,
-                transparent
-            ),
-            transparent
-        );
-
-    transition:
-        left
-        .65s
-        ease;
-}
-
-
-.card:hover::before{
-
-    left:140%;
-}
-
-
-/* =====================================================
-   CARD HOVER
-===================================================== */
-
-.card:hover{
-
-    transform:
-        translateY(-3px);
-
-    border-color:
-        color-mix(
-            in srgb,
-            var(--accent) 55%,
-            transparent
-        );
-
-    background:
-
-        linear-gradient(
-            110deg,
-            color-mix(
-                in srgb,
-                var(--accent) 7%,
-                transparent
-            ),
-            rgba(255,255,255,.025)
-        );
-
-    box-shadow:
-
-        0 12px 35px
-        rgba(0,0,0,.45),
-
-        0 0 22px
-        color-mix(
-            in srgb,
-            var(--accent) 10%,
-            transparent
-        );
-}
-
-
-.card:active{
-
-    transform:
-        scale(.975);
-}
-
-
-/* =====================================================
-   CARD ICON
-===================================================== */
-
-.card-icon{
-
-    width:53px;
-
-    height:53px;
-
-    flex:0 0 53px;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    margin-right:14px;
-
-    border-radius:14px;
+    letter-spacing:.7px;
 
     color:
         var(--accent);
 
     background:
-
         color-mix(
             in srgb,
             var(--accent) 7%,
@@ -1055,301 +871,224 @@ body::before{
         1px solid
         color-mix(
             in srgb,
-            var(--accent) 24%,
-            transparent
-        );
-
-    font-size:20px;
-
-    transition:.3s ease;
-}
-
-
-.card:hover .card-icon{
-
-    color:#fff;
-
-    background:
-        var(--accent);
-
-    border-color:
-        var(--accent);
-
-    box-shadow:
-
-        0 0 20px
-        color-mix(
-            in srgb,
-            var(--accent) 45%,
-            transparent
-        );
-
-    transform:
-        scale(1.06);
-}
-
-
-/* =====================================================
-   CARD CONTENT
-===================================================== */
-
-.card-content{
-
-    flex:1;
-
-    min-width:0;
-
-    padding-right:5px;
-}
-
-
-.card-title{
-
-    font-size:15px;
-
-    font-weight:600;
-
-    color:#f4f7f8;
-
-    line-height:1.35;
-}
-
-
-.card-description{
-
-    margin-top:3px;
-
-    font-size:10px;
-
-    color:#687176;
-
-    line-height:1.4;
-}
-
-
-/* =====================================================
-   TAG
-===================================================== */
-
-.tag{
-
-    display:inline-flex;
-
-    margin-top:5px;
-
-    padding:
-        2px
-        7px;
-
-    border-radius:4px;
-
-    font-size:8px;
-
-    letter-spacing:.7px;
-
-    color:
-        var(--accent);
-
-    background:
-
-        color-mix(
-            in srgb,
-            var(--accent) 6%,
-            transparent
-        );
-
-    border:
-        1px solid
-        color-mix(
-            in srgb,
-            var(--accent) 16%,
+            var(--accent) 18%,
             transparent
         );
 }
-
-
-/* =====================================================
-   ARROW
-===================================================== */
 
 .arrow{
+    color:#536172;
 
-    width:34px;
+    font-size:13px;
 
-    height:34px;
-
-    flex:0 0 34px;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    border-radius:50%;
-
-    color:#596166;
-
-    border:
-        1px solid
-        rgba(255,255,255,.07);
-
-    background:
-        rgba(255,255,255,.025);
-
-    transition:.3s ease;
+    transition:.25s;
 }
 
-
 .card:hover .arrow{
-
-    color:#fff;
-
-    background:
+    color:
         var(--accent);
-
-    border-color:
-        var(--accent);
-
-    box-shadow:
-        0 0 16px
-        color-mix(
-            in srgb,
-            var(--accent) 35%,
-            transparent
-        );
 
     transform:
         translateX(3px);
 }
 
 
-/* =====================================================
-   SECTION FOOTER
-===================================================== */
+/* =========================
+   RED
+========================= */
 
-.section-footer{
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    gap:8px;
-
-    margin-top:16px;
-
-    color:#4f585d;
-
-    font-size:9px;
-
-    letter-spacing:1px;
+.red{
+    --accent:
+        var(--red);
 }
 
-
-.section-footer i{
-
-    color:
-        var(--accent);
-
-    font-size:8px;
-
-    filter:
-        drop-shadow(
-            0 0 5px
-            var(--accent)
+.red .section-inner{
+    background:
+        radial-gradient(
+            circle at 90% 50%,
+            rgba(255,23,56,.09),
+            transparent 45%
+        ),
+        linear-gradient(
+            145deg,
+            rgba(25,7,12,.97),
+            rgba(6,5,9,.98)
         );
 }
 
+.red .section-icon{
+    background:
+        rgba(255,23,56,.08);
 
-/* =====================================================
+    border-color:
+        rgba(255,23,56,.4);
+
+    box-shadow:
+        0 0 20px
+        rgba(255,23,56,.15);
+}
+
+.red .card{
+    border-color:
+        rgba(255,23,56,.2);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,23,56,.08),
+            rgba(255,255,255,.018)
+        );
+
+    box-shadow:
+        0 0 20px
+        rgba(255,23,56,.07);
+}
+
+.red .card:hover{
+    border-color:
+        rgba(255,23,56,.65);
+
+    box-shadow:
+        0 0 30px
+        rgba(255,23,56,.2);
+}
+
+.red .card-icon{
+    color:#ff304f;
+
+    border-color:
+        rgba(255,23,56,.35);
+
+    background:
+        rgba(255,23,56,.09);
+}
+
+.red .card-description{
+    color:#9b7279;
+}
+
+.red .card-tag{
+    color:#ff536a;
+
+    border-color:
+        rgba(255,23,56,.3);
+
+    background:
+        rgba(255,23,56,.07);
+}
+
+.badge{
+    margin-left:auto;
+
+    padding:
+        5px
+        9px;
+
+    border-radius:7px;
+
+    color:#ff6b7d;
+
+    background:
+        rgba(255,23,56,.07);
+
+    border:
+        1px solid
+        rgba(255,23,56,.2);
+
+    font-size:9px;
+}
+
+
+/* =========================
+   BLUE
+========================= */
+
+.blue{
+    --accent:
+        var(--blue);
+}
+
+
+/* =========================
+   GREEN
+========================= */
+
+.green{
+    --accent:
+        var(--green);
+}
+
+
+/* =========================
    FOOTER
-===================================================== */
+========================= */
 
 .footer{
-
     text-align:center;
 
-    margin-top:35px;
+    margin-top:28px;
 
-    color:#3f4649;
+    color:#536172;
 
     font-size:10px;
 
-    letter-spacing:1px;
+    letter-spacing:.4px;
 }
-
 
 .footer strong{
-
-    color:#596267;
+    color:#7e8c9e;
 }
 
 
-/* =====================================================
+/* =========================
    TOAST
-===================================================== */
+========================= */
 
 .toast{
-
     position:fixed;
 
     left:50%;
 
-    bottom:
-        calc(
-            25px +
-            env(safe-area-inset-bottom)
-        );
+    bottom:22px;
 
     transform:
-        translate(-50%,25px)
+        translate(-50%,30px)
         scale(.95);
 
-    display:flex;
+    opacity:0;
 
-    align-items:center;
-
-    gap:9px;
+    z-index:99;
 
     padding:
         11px
-        18px;
+        16px;
 
     border-radius:12px;
 
     background:
-        rgba(12,14,15,.96);
+        rgba(7,13,21,.95);
 
     border:
         1px solid
         rgba(0,200,255,.25);
 
-    color:#dce5e8;
+    box-shadow:
+        0 10px 35px
+        rgba(0,0,0,.45);
 
-    font-size:11px;
+    color:#dce8f3;
 
-    opacity:0;
+    font-size:12px;
 
     pointer-events:none;
 
-    z-index:999;
-
     transition:.3s ease;
 
-    box-shadow:
-
-        0 15px 40px
-        rgba(0,0,0,.6),
-
-        0 0 20px
-        rgba(0,190,255,.07);
+    backdrop-filter:
+        blur(15px);
 }
 
-
 .toast.show{
-
     opacity:1;
 
     transform:
@@ -1358,172 +1097,62 @@ body::before{
 }
 
 
-.toast i{
-
-    color:#00c8ff;
-}
-
-
-/* =====================================================
+/* =========================
    MOBILE
-===================================================== */
+========================= */
 
 @media(max-width:600px){
 
     .container{
-
         width:92%;
 
-        padding-top:28px;
+        padding-top:25px;
     }
-
-
-    .header{
-
-        margin-bottom:28px;
-    }
-
 
     .logo{
-
-        letter-spacing:1px;
+        font-size:31px;
     }
-
-
-    .subtitle{
-
-        font-size:9px;
-
-        letter-spacing:2px;
-    }
-
 
     .lightning-line{
-
-        width:38px;
+        width:42px;
     }
-
 
     .section-inner{
-
         padding:
             18px
-            14px
-            15px;
+            13px
+            14px;
     }
 
-
     .section-title{
-
         font-size:16px;
     }
 
-
-    .section-icon{
-
-        width:41px;
-
-        height:41px;
-
-        border-radius:11px;
-
-        font-size:17px;
-    }
-
-
     .card{
+        padding:13px;
 
-        min-height:82px;
-
-        padding:12px;
+        gap:11px;
     }
-
 
     .card-icon{
+        flex-basis:42px;
 
-        width:47px;
+        width:42px;
 
-        height:47px;
-
-        flex-basis:47px;
-
-        margin-right:11px;
-
-        border-radius:12px;
-
-        font-size:18px;
+        height:42px;
     }
 
-
     .card-title{
-
         font-size:14px;
     }
 
-
     .card-description{
-
-        font-size:9px;
-    }
-
-
-    .tag{
-
-        font-size:7px;
-    }
-
-
-    .arrow{
-
-        width:31px;
-
-        height:31px;
-
-        flex-basis:31px;
-
         font-size:10px;
     }
 
-}
-
-
-/* =====================================================
-   VERY SMALL SCREEN
-===================================================== */
-
-@media(max-width:360px){
-
-    .container{
-
-        width:94%;
+    .badge{
+        display:none;
     }
-
-
-    .section-inner{
-
-        padding-left:11px;
-
-        padding-right:11px;
-    }
-
-
-    .card-icon{
-
-        width:43px;
-
-        height:43px;
-
-        flex-basis:43px;
-
-        margin-right:9px;
-    }
-
-
-    .card-title{
-
-        font-size:13px;
-    }
-
 }
 
 </style>
@@ -1531,629 +1160,742 @@ body::before{
 </head>
 
 
-
 <body>
 
 
-<!-- =====================================================
-     BACKGROUND
-===================================================== -->
+<div class="glow blue"></div>
 
-<div class="grid"></div>
+<div class="glow green"></div>
 
-<div class="bg-light one"></div>
+<div class="glow red"></div>
 
-<div class="bg-light two"></div>
-
-
-<!-- =====================================================
-     PARTICLES
-===================================================== -->
 
 <div class="particles">
 
-    <span class="particle"></span>
-    <span class="particle"></span>
-    <span class="particle"></span>
-    <span class="particle"></span>
-    <span class="particle"></span>
-    <span class="particle"></span>
-    <span class="particle"></span>
-    <span class="particle"></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
 
 </div>
 
 
 
-<!-- =====================================================
-     MAIN
-===================================================== -->
-
-<main class="container">
+<div class="container">
 
 
-    <!-- =================================================
-         HEADER
-    ================================================== -->
+<!-- =========================
+     HEADER
+========================= -->
 
-    <header class="header">
+<header class="header">
+
+    <div class="logo">
+
+        VaiperX
+
+        <span class="crown">
+            👑
+        </span>
+
+    </div>
 
 
-        <div class="lightning">
+    <div class="lightning">
 
-            <span class="lightning-line"></span>
+        <span class="lightning-line"></span>
 
-            <i class="fa-solid fa-bolt lightning-icon"></i>
+        <i class="fa-solid fa-bolt"></i>
 
-            <span class="lightning-line right"></span>
+        <span class="lightning-line"></span>
+
+    </div>
+
+
+    <div class="subtitle">
+
+        Premium Installation Center
+
+    </div>
+
+
+    <div class="status">
+
+        <span class="status-dot"></span>
+
+        SYSTEM ONLINE
+
+    </div>
+
+</header>
+
+
+
+<!-- =========================
+     CONFIGURATION
+========================= -->
+
+<section class="section red">
+
+
+<div class="section-inner">
+
+
+    <div class="section-head">
+
+
+        <div class="section-icon">
+
+            <i class="fa-solid fa-file-shield"></i>
 
         </div>
 
 
-        <div class="logo">
+        <div class="section-title">
 
-            VaiperX
+            Configuration File
 
-            <span class="crown">♛</span>
+            <small>
 
-        </div>
+                ดาวน์โหลดไฟล์ Configuration
 
-
-        <div class="subtitle">
-
-            INSTALLATION &amp; ACCESS CENTER
+            </small>
 
         </div>
 
 
-        <div class="status">
+        <div class="badge">
 
-            <span class="status-dot"></span>
+            <i class="fa-solid fa-bolt"></i>
 
-            SYSTEM ONLINE
+            CONFIG
 
         </div>
 
 
-    </header>
+    </div>
 
 
 
-    <!-- =================================================
-         SECTION 1
-         E-SIGN
-    ================================================== -->
+    <a
+        class="card"
+        href="#"
+        onclick="downloadConfig(event)"
+    >
 
-    <section class="section blue-section">
+        <div class="card-icon">
 
-
-        <div class="section-inner">
-
-
-            <!-- SECTION HEADER -->
-
-            <div class="section-header">
-
-
-                <div class="section-icon">
-
-                    <i class="fa-solid fa-cloud-arrow-down"></i>
-
-                </div>
-
-
-                <div>
-
-                    <div class="section-title">
-
-                        ช่องสำหรับ แอปลงฟรี
-
-                    </div>
-
-
-                    <div class="section-subtitle">
-
-                        E-SIGN INSTALLATION CENTER
-
-                    </div>
-
-                </div>
-
-
-            </div>
-
-
-
-            <!-- MENU -->
-
-            <div class="menu">
-
-
-                <!-- =====================================
-                     BLUE BUTTON 1
-                ====================================== -->
-
-                <div
-                    class="card"
-                    onclick="goTo(
-                        'https://skibiditech.co/',
-                        'กำลังเปิดลิงก์โหลด E-Sign'
-                    )"
-                >
-
-
-                    <div class="card-icon">
-
-                        <i class="fa-solid fa-download"></i>
-
-                    </div>
-
-
-                    <div class="card-content">
-
-                        <div class="card-title">
-
-                            ลิงก์โหลด E-Sign
-
-                        </div>
-
-
-                        <div class="card-description">
-
-                            เข้าสู่หน้าสำหรับดาวน์โหลด E-Sign
-
-                        </div>
-
-
-                        <span class="tag">
-
-                            DOWNLOAD E-SIGN
-
-                        </span>
-
-                    </div>
-
-
-                    <div class="arrow">
-
-                        <i class="fa-solid fa-chevron-right"></i>
-
-                    </div>
-
-
-                </div>
-
-
-
-                <!-- =====================================
-                     BLUE BUTTON 2
-                ====================================== -->
-
-                <div
-                    class="card"
-                    onclick="goTo(
-                        'https://youtu.be/E8g6eto6ygg?si=vP_qKiYfjEgU7FC-',
-                        'กำลังเปิดวิธีสอนติดตั้ง E-Sign และพาแนล'
-                    )"
-                >
-
-
-                    <div class="card-icon">
-
-                        <i class="fa-solid fa-circle-play"></i>
-
-                    </div>
-
-
-                    <div class="card-content">
-
-                        <div class="card-title">
-
-                            สอนติดตั้ง E-Sign และ สอนติดตั้งพาแนล
-
-                        </div>
-
-
-                        <div class="card-description">
-
-                            ดูวิดีโอวิธีติดตั้งแบบละเอียด
-
-                        </div>
-
-
-                        <span class="tag">
-
-                            INSTALL TUTORIAL
-
-                        </span>
-
-                    </div>
-
-
-                    <div class="arrow">
-
-                        <i class="fa-solid fa-chevron-right"></i>
-
-                    </div>
-
-
-                </div>
-
-
-
-                <!-- =====================================
-                     BLUE BUTTON 3
-                ====================================== -->
-
-                <div
-                    class="card"
-                    onclick="goTo(
-                        'https://www.mediafire.com/file/8y17woeyt1hyr2n/VIPERXMOD+v1.ipa/file',
-                        'กำลังเปิดลิงก์พาแนลสำหรับ E-Sign'
-                    )"
-                >
-
-
-                    <div class="card-icon">
-
-                        <i class="fa-solid fa-bolt"></i>
-
-                    </div>
-
-
-                    <div class="card-content">
-
-                        <div class="card-title">
-
-                            ลิงก์พาแนลสำหรับ E-Sign
-
-                        </div>
-
-
-                        <div class="card-description">
-
-                            ดาวน์โหลด VIPERXMOD v1.ipa
-
-                        </div>
-
-
-                        <span class="tag">
-
-                            VIPERXMOD V1
-
-                        </span>
-
-                    </div>
-
-
-                    <div class="arrow">
-
-                        <i class="fa-solid fa-chevron-right"></i>
-
-                    </div>
-
-
-                </div>
-
-
-            </div>
-
-
-
-            <!-- SECTION FOOTER -->
-
-            <div class="section-footer">
-
-                <i class="fa-solid fa-shield-halved"></i>
-
-                E-SIGN ACCESS
-
-            </div>
-
+            <i class="fa-solid fa-file-arrow-down"></i>
 
         </div>
 
-    </section>
 
+        <div class="card-content">
 
+            <div class="card-title">
 
-    <!-- =================================================
-         SECTION 2
-         GBOX
-    ================================================== -->
-
-    <section class="section green-section">
-
-
-        <div class="section-inner">
-
-
-            <!-- SECTION HEADER -->
-
-            <div class="section-header">
-
-
-                <div class="section-icon">
-
-                    <i class="fa-solid fa-box-open"></i>
-
-                </div>
-
-
-                <div>
-
-                    <div class="section-title">
-
-                        ช่องสำหรับ GBox
-
-                    </div>
-
-
-                    <div class="section-subtitle">
-
-                        GBOX INSTALLATION CENTER
-
-                    </div>
-
-                </div>
-
+                ดาวน์โหลดไฟล์ Configuration
 
             </div>
 
 
+            <div class="card-description">
 
-            <!-- MENU -->
-
-            <div class="menu">
-
-
-                <!-- =====================================
-                     GREEN BUTTON 1
-                ====================================== -->
-
-                <div
-                    class="card"
-                    onclick="goTo(
-                        'https://youtube.com/shorts/_EGL9jUhoUs?si=8prYTcBrOcUl-H1z',
-                        'กำลังเปิดคลิปสอนติดตั้งผ่าน GBox'
-                    )"
-                >
-
-
-                    <div class="card-icon">
-
-                        <i class="fa-solid fa-circle-play"></i>
-
-                    </div>
-
-
-                    <div class="card-content">
-
-                        <div class="card-title">
-
-                            คลิปสอนติดตั้งผ่าน GBox
-
-                        </div>
-
-
-                        <div class="card-description">
-
-                            ดูขั้นตอนการติดตั้งผ่าน GBox
-
-                        </div>
-
-
-                        <span class="tag">
-
-                            GBOX TUTORIAL
-
-                        </span>
-
-                    </div>
-
-
-                    <div class="arrow">
-
-                        <i class="fa-solid fa-chevron-right"></i>
-
-                    </div>
-
-
-                </div>
-
-
-
-                <!-- =====================================
-                     GREEN BUTTON 2
-                ====================================== -->
-
-                <div
-                    class="card"
-                    onclick="goTo(
-                        'https://drive.google.com/file/d/18pmmOhQ22XyGYKAVuwyeWpkwoCl5oTzU/view?usp=drivesdk',
-                        'กำลังเปิดลิงก์พาแนลสำหรับ GBox'
-                    )"
-                >
-
-
-                    <div class="card-icon">
-
-                        <i class="fa-solid fa-link"></i>
-
-                    </div>
-
-
-                    <div class="card-content">
-
-                        <div class="card-title">
-
-                            ลิงก์พาแนลสำหรับ GBox
-
-                        </div>
-
-
-                        <div class="card-description">
-
-                            เข้าสู่ลิงก์พาแนลสำหรับ GBox
-
-                        </div>
-
-
-                        <span class="tag">
-
-                            GBOX PANEL
-
-                        </span>
-
-                    </div>
-
-
-                    <div class="arrow">
-
-                        <i class="fa-solid fa-chevron-right"></i>
-
-                    </div>
-
-
-                </div>
-
+                ดาวน์โหลด VIPERXMOD.mobileconfig
 
             </div>
 
 
+            <span class="card-tag">
 
-            <!-- SECTION FOOTER -->
+                DOWNLOAD
 
-            <div class="section-footer">
-
-                <i class="fa-solid fa-circle-check"></i>
-
-                GBOX ACCESS
-
-            </div>
-
+            </span>
 
         </div>
 
-    </section>
 
+        <div class="arrow">
 
+            <i class="fa-solid fa-chevron-right"></i>
 
-    <!-- =================================================
-         FOOTER
-    ================================================== -->
+        </div>
 
-    <footer class="footer">
+    </a>
 
-        VAIPERX PANEL
-
-        <br>
-
-        <strong>
-
-            PREMIUM GAMING INTERFACE
-
-        </strong>
-
-    </footer>
-
-
-</main>
-
-
-
-<!-- =====================================================
-     TOAST
-===================================================== -->
-
-<div
-    class="toast"
-    id="toast"
->
-
-    <i class="fa-solid fa-arrow-up-right-from-square"></i>
-
-    <span id="toastText">
-
-        กำลังเปิดลิงก์...
-
-    </span>
 
 </div>
+
+</section>
+
+
+
+<!-- =========================
+     E-SIGN
+========================= -->
+
+<section class="section blue">
+
+
+<div class="section-inner">
+
+
+    <div class="section-head">
+
+
+        <div class="section-icon">
+
+            <i class="fa-solid fa-mobile-screen-button"></i>
+
+        </div>
+
+
+        <div class="section-title">
+
+            ช่องสำหรับ แอปลงฟรี
+
+            <small>
+
+                E-Sign Installation
+
+            </small>
+
+        </div>
+
+
+    </div>
+
+
+
+    <a
+        class="card"
+        href="https://skibiditech.co/"
+        target="_blank"
+        rel="noopener noreferrer"
+        onclick="showToast('กำลังเปิดลิงก์โหลด E-Sign...')"
+    >
+
+        <div class="card-icon">
+
+            <i class="fa-solid fa-download"></i>
+
+        </div>
+
+
+        <div class="card-content">
+
+            <div class="card-title">
+
+                ลิงก์โหลด E-Sign
+
+            </div>
+
+
+            <div class="card-description">
+
+                ดาวน์โหลด E-Sign สำหรับติดตั้งแอป
+
+            </div>
+
+
+            <span class="card-tag">
+
+                DOWNLOAD
+
+            </span>
+
+        </div>
+
+
+        <div class="arrow">
+
+            <i class="fa-solid fa-chevron-right"></i>
+
+        </div>
+
+    </a>
+
+
+
+    <a
+        class="card"
+        href="https://youtu.be/E8g6eto6ygg?si=vP_qKiYfjEgU7FC-"
+        target="_blank"
+        rel="noopener noreferrer"
+        onclick="showToast('กำลังเปิดคลิปสอนติดตั้ง...')"
+    >
+
+        <div class="card-icon">
+
+            <i class="fa-solid fa-circle-play"></i>
+
+        </div>
+
+
+        <div class="card-content">
+
+            <div class="card-title">
+
+                สอนติดตั้ง E-Sign และ สอนติดตั้งพาแนล
+
+            </div>
+
+
+            <div class="card-description">
+
+                ดูขั้นตอนการติดตั้งแบบละเอียดผ่านวิดีโอ
+
+            </div>
+
+
+            <span class="card-tag">
+
+                TUTORIAL
+
+            </span>
+
+        </div>
+
+
+        <div class="arrow">
+
+            <i class="fa-solid fa-chevron-right"></i>
+
+        </div>
+
+    </a>
+
+
+
+    <a
+        class="card"
+        href="https://www.mediafire.com/file/8y17woeyt1hyr2n/VIPERXMOD+v1.ipa/file"
+        target="_blank"
+        rel="noopener noreferrer"
+        onclick="showToast('กำลังเปิดลิงก์พาแนล...')"
+    >
+
+        <div class="card-icon">
+
+            <i class="fa-solid fa-link"></i>
+
+        </div>
+
+
+        <div class="card-content">
+
+            <div class="card-title">
+
+                ลิงก์พาแนลสำหรับ E-Sign
+
+            </div>
+
+
+            <div class="card-description">
+
+                เปิดไฟล์พาแนลสำหรับใช้งานผ่าน E-Sign
+
+            </div>
+
+
+            <span class="card-tag">
+
+                PANEL
+
+            </span>
+
+        </div>
+
+
+        <div class="arrow">
+
+            <i class="fa-solid fa-chevron-right"></i>
+
+        </div>
+
+    </a>
+
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     GBOX
+========================= -->
+
+<section class="section green">
+
+
+<div class="section-inner">
+
+
+    <div class="section-head">
+
+
+        <div class="section-icon">
+
+            <i class="fa-solid fa-box-open"></i>
+
+        </div>
+
+
+        <div class="section-title">
+
+            ช่องสำหรับ GBox
+
+            <small>
+
+                GBox Installation
+
+            </small>
+
+        </div>
+
+
+    </div>
+
+
+
+    <a
+        class="card"
+        href="https://youtube.com/shorts/_EGL9jUhoUs?si=8prYTcBrOcUl-H1z"
+        target="_blank"
+        rel="noopener noreferrer"
+        onclick="showToast('กำลังเปิดคลิปสอนติดตั้งผ่าน GBox...')"
+    >
+
+        <div class="card-icon">
+
+            <i class="fa-solid fa-circle-play"></i>
+
+        </div>
+
+
+        <div class="card-content">
+
+            <div class="card-title">
+
+                คลิปสอนติดตั้งผ่าน GBox
+
+            </div>
+
+
+            <div class="card-description">
+
+                ดูขั้นตอนการติดตั้งผ่าน GBox แบบละเอียด
+
+            </div>
+
+
+            <span class="card-tag">
+
+                TUTORIAL
+
+            </span>
+
+        </div>
+
+
+        <div class="arrow">
+
+            <i class="fa-solid fa-chevron-right"></i>
+
+        </div>
+
+    </a>
+
+
+
+    <a
+        class="card"
+        href="https://drive.google.com/file/d/18pmmOhQ22XyGYKAVuwyeWpkwoCl5oTzU/view?usp=drivesdk"
+        target="_blank"
+        rel="noopener noreferrer"
+        onclick="showToast('กำลังเปิดลิงก์พาแนลสำหรับ GBox...')"
+    >
+
+        <div class="card-icon">
+
+            <i class="fa-solid fa-link"></i>
+
+        </div>
+
+
+        <div class="card-content">
+
+            <div class="card-title">
+
+                ลิงก์พาแนลสำหรับ GBox
+
+            </div>
+
+
+            <div class="card-description">
+
+                เปิดไฟล์พาแนลสำหรับติดตั้งผ่าน GBox
+
+            </div>
+
+
+            <span class="card-tag">
+
+                PANEL
+
+            </span>
+
+        </div>
+
+
+        <div class="arrow">
+
+            <i class="fa-solid fa-chevron-right"></i>
+
+        </div>
+
+    </a>
+
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<div class="footer">
+
+    <strong>
+        VAIPERX
+    </strong>
+
+    • Premium Installation Center
+
+    <br>
+
+    Secure • Fast • Simple
+
+</div>
+
+
+</div>
+
+
+
+<div id="toast" class="toast"></div>
 
 
 
 <script>
 
 /* =====================================================
-   OPEN LINK
+   TOAST
 ===================================================== */
 
-function goTo(url, message){
+let toastTimer;
+
+
+function showToast(message){
 
     const toast =
         document.getElementById("toast");
 
-    const toastText =
-        document.getElementById("toastText");
-
-
-    toastText.textContent =
+    toast.textContent =
         message;
-
 
     toast.classList.add("show");
 
+    clearTimeout(
+        toastTimer
+    );
 
-    setTimeout(function(){
+    toastTimer =
+        setTimeout(
+            function(){
 
-        window.open(
-            url,
-            "_blank"
+                toast.classList.remove("show");
+
+            },
+            2200
         );
-
-    },300);
-
-
-    setTimeout(function(){
-
-        toast.classList.remove("show");
-
-    },1800);
 
 }
 
 
 /* =====================================================
-   PREVENT DOUBLE CLICK
+   EMBEDDED VIPERXMOD.MOBILECONFIG
+   ไฟล์ที่คุณอัปโหลดถูกฝังไว้ตรงนี้
 ===================================================== */
 
-let clickLock = false;
+const configBase64 = "PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPCFET0NUWVBFIHBsaXN0IFBVQkxJQyAiLS8vQXBwbGUvL0RURCBQTElTVCAxLjAvL0VOIiAiaHR0cDovL3d3dy5hcHBsZS5jb20vRFREcy9Qcm9wZXJ0eUxpc3QtMS4wLmR0ZCI+CjxwbGlzdCB2ZXJzaW9uPSIxLjAiPgo8ZGljdD4KCTxrZXk+UGF5bG9hZENvbnRlbnQ8L2tleT4KCTxhcnJheT4KCQk8ZGljdD4KCQkJPGtleT5ETlNTZXR0aW5nczwva2V5PgoJCQk8ZGljdD4KCQkJCTxrZXk+RE5TUHJvdG9jb2w8L2tleT4KCQkJCTxzdHJpbmc+SFRUUFM8L3N0cmluZz4KCQkJCTxrZXk+U2VydmVyVVJMPC9rZXk+CgkJCQk8c3RyaW5nPmh0dHBzOi8vYXBwbGUuZG5zLm5leHRkbnMuaW8vODQ0OTk4PC9zdHJpbmc+CgkJCTwvZGljdD4KCQkJPGtleT5QYXlsb2FkRGlzcGxheU5hbWU8L2tleT4KCQkJPHN0cmluZz5WSVBFUlhNT0QgU2VjdXJlIEROUzwvc3RyaW5nPgoJCQk8a2V5PlBheWxvYWRJZGVudGlmaWVyPC9rZXk+CgkJCTxzdHJpbmc+Y29tLnZpcGVyeG1vZC5uZXh0ZG5zLjg0NDk5OC5zeXN0ZW0uc2V0dGluZ3M8L3N0cmluZz4KCQkJPGtleT5QYXlsb2FkVHlwZTwva2V5PgoJCQk8c3RyaW5nPmNvbS5hcHBsZS5kbnNTZXR0aW5ncy5tYW5hZ2VkPC9zdHJpbmc+CgkJCTxrZXk+UGF5bG9hZFVVSUQ8L2tleT4KCQkJPHN0cmluZz5CRjhEQzg3QS0zNzQ1LTQ3NEQtOEEwNS1CQzlFRDBBODRCRTU8L3N0cmluZz4KCQkJPGtleT5QYXlsb2FkVmVyc2lvbjwva2V5PgoJCQk8aW50ZWdlcj4xPC9pbnRlZ2VyPgoJCQk8a2V5Pk9uRGVtYW5kRW5hYmxlZDwva2V5PgoJCQk8aW50ZWdlcj4xPC9pbnRlZ2VyPgoJCQk8a2V5Pk9uRGVtYW5kUnVsZXM8L2tleT4KCQkJPGFycmF5PgoJCQkJPGRpY3Q+CgkJCQkJPGtleT5BY3Rpb248L2tleT4KCQkJCQk8c3RyaW5nPkNvbm5lY3Q8L3N0cmluZz4KCQkJCQk8a2V5PkludGVyZmFjZVR5cGVNYXRjaDwva2V5PgoJCQkJCTxzdHJpbmc+V2lGaTwvc3RyaW5nPgoJCQkJPC9kaWN0PgoJCQkJPGRpY3Q+CgkJCQkJPGtleT5BY3Rpb248L2tleT4KCQkJCQk8c3RyaW5nPkNvbm5lY3Q8L3N0cmluZz4KCQkJCQk8a2V5PkludGVyZmFjZVR5cGVNYXRjaDwva2V5PgoJCQkJCTxzdHJpbmc+Q2VsbHVsYXI8L3N0cmluZz4KCQkJCTwvZGljdD4KCQkJCTxkaWN0PgoJCQkJCTxrZXk+QWN0aW9uPC9rZXk+CgkJCQkJPHN0cmluZz5Db25uZWN0PC9zdHJpbmc+CgkJCQk8L2RpY3Q+CgkJCTwvYXJyYXk+CgkJPC9kaWN0PgoJPC9hcnJheT4KCTxrZXk+UGF5bG9hZERlc2NyaXB0aW9uPC9rZXk+Cgk8c3RyaW5nPlZJUEVSWE1PRCBTeXN0ZW0gRE5TIFByb2ZpbGUg4oCUIOC5guC4m+C4o+C5hOC4n+C4peC5jCBETlMg4LiC4Lit4LiHIFZJUEVSWE1PRCDguKrguLPguKvguKPguLHguJrguYPguIrguYnguIfguLLguJkgRE5TLW92ZXItSFRUUFMg4Lia4LiZIFdp4oCRRmkg4LmB4Lil4Liw4LmA4LiE4Lij4Li34Lit4LiC4LmI4Liy4Lii4Lih4Li34Lit4LiW4Li34LitPC9zdHJpbmc+Cgk8a2V5PlBheWxvYWREaXNwbGF5TmFtZTwva2V5PgoJPHN0cmluZz5WSVBFUlhNT0QgU2VjdXJlIEROUzwvc3RyaW5nPgoJPGtleT5QYXlsb2FkT3JnYW5pemF0aW9uPC9rZXk+Cgk8c3RyaW5nPlZJUEVSWE1PRDwvc3RyaW5nPgoJPGtleT5QYXlsb2FkSWRlbnRpZmllcjwva2V5PgoJPHN0cmluZz5jb20udmlwZXJ4bW9kLm5leHRkbnMuODQ0OTk4LnN5c3RlbTwvc3RyaW5nPgoJPGtleT5QYXlsb2FkUmVtb3ZhbERpc2FsbG93ZWQ8L2tleT4KCTxmYWxzZS8+Cgk8a2V5PlBheWxvYWRTY29wZTwva2V5PgoJPHN0cmluZz5TeXN0ZW08L3N0cmluZz4KCTxrZXk+UGF5bG9hZFR5cGU8L2tleT4KCTxzdHJpbmc+Q29uZmlndXJhdGlvbjwvc3RyaW5nPgoJPGtleT5QYXlsb2FkVVVJRDwva2V5PgoJPHN0cmluZz5DMzVFNzlGMi1DMzY2LTQ2NkYtOEY2Mi0wRERCNUEzOEEyRDg8L3N0cmluZz4KCTxrZXk+UGF5bG9hZFZlcnNpb248L2tleT4KCTxpbnRlZ2VyPjE8L2ludGVnZXI+CjwvZGljdD4KPC9wbGlzdD4K";
 
 
-document.addEventListener(
-    "click",
-    function(){
+/* =====================================================
+   CONVERT BASE64 → FILE
+===================================================== */
 
-        if(clickLock){
-            return;
+function base64ToBlob(base64,mime){
+
+    const binary =
+        atob(base64);
+
+    const chunk =
+        8192;
+
+    const parts =
+        [];
+
+
+    for(
+        let i=0;
+        i<binary.length;
+        i+=chunk
+    ){
+
+        const slice =
+            binary.slice(
+                i,
+                i+chunk
+            );
+
+
+        const bytes =
+            new Uint8Array(
+                slice.length
+            );
+
+
+        for(
+            let j=0;
+            j<slice.length;
+            j++
+        ){
+
+            bytes[j] =
+                slice.charCodeAt(j);
+
         }
 
-        clickLock = true;
 
-        setTimeout(function(){
+        parts.push(bytes);
 
-            clickLock = false;
+    }
 
-        },450);
 
-    },
-    true
-);
+    return new Blob(
+        parts,
+        {
+            type:
+                "application/x-apple-aspen-config"
+        }
+    );
+
+}
+
+
+/* =====================================================
+   DOWNLOAD
+===================================================== */
+
+function downloadConfig(event){
+
+    event.preventDefault();
+
+
+    showToast(
+        "กำลังเตรียมไฟล์ VIPERXMOD.mobileconfig..."
+    );
+
+
+    try{
+
+        const blob =
+            base64ToBlob(
+                configBase64,
+                "application/x-apple-aspen-config"
+            );
+
+
+        const url =
+            URL.createObjectURL(
+                blob
+            );
+
+
+        const link =
+            document.createElement(
+                "a"
+            );
+
+
+        link.href =
+            url;
+
+
+        link.download =
+            "VIPERXMOD.mobileconfig";
+
+
+        document.body.appendChild(
+            link
+        );
+
+
+        link.click();
+
+
+        link.remove();
+
+
+        setTimeout(
+            function(){
+
+                URL.revokeObjectURL(
+                    url
+                );
+
+            },
+            3000
+        );
+
+
+        setTimeout(
+            function(){
+
+                showToast(
+                    "ดาวน์โหลด VIPERXMOD.mobileconfig แล้ว"
+                );
+
+            },
+            700
+        );
+
+
+    }catch(error){
+
+        console.error(
+            error
+        );
+
+
+        showToast(
+            "ไม่สามารถดาวน์โหลดไฟล์ได้"
+        );
+
+    }
+
+}
 
 </script>
 
-
 </body>
-
 </html>
