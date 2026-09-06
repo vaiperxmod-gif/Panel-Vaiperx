@@ -7,11 +7,9 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
 <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800&family=Orbitron:wght@500;600;700;800;900&display=swap" rel="stylesheet">
 
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 <style>
 
@@ -19,7 +17,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     margin:0;
     padding:0;
     box-sizing:border-box;
-    -webkit-tap-highlight-color:transparent;
+    -webkit-tap-highlight-color:transparent
 }
 
 :root{
@@ -31,71 +29,29 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 
 body{
     min-height:100vh;
-
     background:
-        radial-gradient(
-            circle at 15% 15%,
-            rgba(0,200,255,.10),
-            transparent 30%
-        ),
-        radial-gradient(
-            circle at 85% 30%,
-            rgba(0,255,145,.08),
-            transparent 30%
-        ),
-        radial-gradient(
-            circle at 50% 100%,
-            rgba(255,23,56,.07),
-            transparent 35%
-        ),
+        radial-gradient(circle at 15% 15%,rgba(0,200,255,.10),transparent 30%),
+        radial-gradient(circle at 85% 30%,rgba(0,255,145,.08),transparent 30%),
+        radial-gradient(circle at 50% 100%,rgba(255,23,56,.07),transparent 35%),
         #03070d;
-
     color:#fff;
-
     font-family:'Kanit',sans-serif;
-
     overflow-x:hidden;
-
     position:relative;
 }
 
-
-/* =========================
-   CYBER GRID
-========================= */
-
-body::before{
+body:before{
     content:"";
-
     position:fixed;
-
     inset:0;
-
     background-image:
-        linear-gradient(
-            rgba(255,255,255,.025) 1px,
-            transparent 1px
-        ),
-        linear-gradient(
-            90deg,
-            rgba(255,255,255,.025) 1px,
-            transparent 1px
-        );
-
+        linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
     background-size:40px 40px;
-
-    mask-image:
-        linear-gradient(
-            to bottom,
-            black,
-            transparent 90%
-        );
-
+    mask-image:linear-gradient(to bottom,black,transparent 90%);
     pointer-events:none;
-
     z-index:0;
 }
-
 
 /* =========================
    BACKGROUND GLOW
@@ -103,18 +59,12 @@ body::before{
 
 .glow{
     position:fixed;
-
     width:350px;
     height:350px;
-
     border-radius:50%;
-
     filter:blur(100px);
-
     opacity:.14;
-
     pointer-events:none;
-
     z-index:0;
 }
 
@@ -136,7 +86,6 @@ body::before{
     left:35%;
 }
 
-
 /* =========================
    PARTICLES
 ========================= */
@@ -144,109 +93,88 @@ body::before{
 .particles{
     position:fixed;
     inset:0;
-
     overflow:hidden;
-
     pointer-events:none;
-
     z-index:0;
 }
 
 .particles span{
     position:absolute;
-
     width:2px;
     height:2px;
-
     background:#fff;
-
     border-radius:50%;
-
     opacity:.5;
-
-    animation:
-        floatParticle
-        linear
-        infinite;
+    animation:float linear infinite;
 }
 
 .particles span:nth-child(1){
     left:8%;
     top:30%;
-    animation-duration:8s;
+    animation-duration:8s
 }
 
 .particles span:nth-child(2){
     left:18%;
     top:70%;
-    animation-duration:11s;
+    animation-duration:11s
 }
 
 .particles span:nth-child(3){
     left:30%;
     top:15%;
-    animation-duration:9s;
+    animation-duration:9s
 }
 
 .particles span:nth-child(4){
     left:42%;
     top:80%;
-    animation-duration:12s;
+    animation-duration:12s
 }
 
 .particles span:nth-child(5){
     left:55%;
     top:25%;
-    animation-duration:10s;
+    animation-duration:10s
 }
 
 .particles span:nth-child(6){
     left:68%;
     top:65%;
-    animation-duration:9s;
+    animation-duration:9s
 }
 
 .particles span:nth-child(7){
     left:78%;
     top:18%;
-    animation-duration:13s;
+    animation-duration:13s
 }
 
 .particles span:nth-child(8){
     left:90%;
     top:75%;
-    animation-duration:10s;
+    animation-duration:10s
 }
 
-@keyframes floatParticle{
-
+@keyframes float{
     0%{
-        transform:
-            translateY(0)
-            scale(.7);
-
-        opacity:0;
+        transform:translateY(0);
+        opacity:0
     }
 
     20%{
-        opacity:.6;
+        opacity:.6
     }
 
     50%{
-        transform:
-            translateY(-70px)
-            scale(1);
+        transform:translateY(-70px)
     }
 
     100%{
-        transform:
-            translateY(-150px)
-            scale(.4);
-
-        opacity:0;
+        transform:translateY(-150px);
+        opacity:0
     }
 }
-
 
 /* =========================
    CONTAINER
@@ -254,19 +182,11 @@ body::before{
 
 .container{
     position:relative;
-
     z-index:2;
-
     width:min(720px,92%);
-
     margin:auto;
-
-    padding:
-        32px
-        0
-        50px;
+    padding:32px 0 50px;
 }
-
 
 /* =========================
    HEADER
@@ -274,118 +194,58 @@ body::before{
 
 .header{
     text-align:center;
-
     margin-bottom:30px;
 }
 
 .logo{
     display:inline-flex;
-
     align-items:center;
-
     justify-content:center;
-
     font-family:'Orbitron',sans-serif;
-
-    font-size:
-        clamp(
-            32px,
-            9vw,
-            48px
-        );
-
+    font-size:38px;
     font-weight:900;
-
     letter-spacing:2px;
-
-    color:#fff;
-
     text-shadow:
         0 0 5px #fff,
         0 0 15px rgba(0,200,255,.9),
         0 0 35px rgba(0,200,255,.5);
-
-    animation:
-        logoPulse
-        2.5s
-        ease-in-out
-        infinite;
+    animation:pulse 2.5s ease-in-out infinite;
 }
 
-.logo .crown{
+.crown{
     margin-left:8px;
-
     filter:
-        drop-shadow(
-            0 0 5px
-            #ffd700
-        )
-        drop-shadow(
-            0 0 15px
-            #ff9d00
-        );
-
-    animation:
-        crownPulse
-        1.5s
-        ease-in-out
-        infinite;
+        drop-shadow(0 0 5px #ffd700)
+        drop-shadow(0 0 15px #ff9d00);
+    animation:crown 1.5s ease-in-out infinite;
 }
 
-@keyframes logoPulse{
-
-    0%,
-    100%{
-        text-shadow:
-            0 0 5px #fff,
-            0 0 15px rgba(0,200,255,.8),
-            0 0 30px rgba(0,200,255,.4);
-    }
-
+@keyframes pulse{
     50%{
         text-shadow:
             0 0 8px #fff,
             0 0 25px rgba(0,200,255,1),
-            0 0 50px rgba(0,200,255,.7);
+            0 0 50px rgba(0,200,255,.7)
     }
 }
 
-@keyframes crownPulse{
-
-    0%,
-    100%{
-        transform:scale(1);
-    }
-
+@keyframes crown{
     50%{
-        transform:
-            scale(1.12)
-            rotate(-3deg);
+        transform:scale(1.12) rotate(-3deg)
     }
 }
-
-
-/* =========================
-   LIGHTNING
-========================= */
 
 .lightning{
     display:flex;
-
     align-items:center;
-
     justify-content:center;
-
     gap:12px;
-
     margin-top:7px;
 }
 
 .lightning-line{
     width:65px;
-
     height:1px;
-
     background:
         linear-gradient(
             90deg,
@@ -395,118 +255,56 @@ body::before{
             var(--blue),
             transparent
         );
-
-    box-shadow:
-        0 0 10px
-        var(--blue);
+    box-shadow:0 0 10px var(--blue);
 }
 
 .lightning i{
     color:#fff;
-
     font-size:14px;
-
-    filter:
-        drop-shadow(
-            0 0 5px
-            var(--blue)
-        )
-        drop-shadow(
-            0 0 12px
-            var(--blue)
-        );
-
-    animation:
-        zap
-        .7s
-        infinite
-        alternate;
+    filter:drop-shadow(0 0 5px var(--blue));
+    animation:zap .7s infinite alternate;
 }
 
 @keyframes zap{
-
-    from{
-        opacity:.5;
-
-        transform:
-            scale(.85);
-    }
-
     to{
         opacity:1;
-
-        transform:
-            scale(1.15);
+        transform:scale(1.15)
     }
 }
 
-
-/* =========================
-   HEADER TEXT
-========================= */
-
 .subtitle{
     margin-top:12px;
-
     color:#8998aa;
-
     font-size:14px;
-
-    letter-spacing:.5px;
 }
 
 .status{
     display:inline-flex;
-
     align-items:center;
-
     gap:7px;
-
     margin-top:15px;
-
-    padding:
-        6px
-        13px;
-
-    border:
-        1px solid
-        rgba(0,200,255,.25);
-
+    padding:6px 13px;
+    border:1px solid rgba(0,200,255,.25);
     border-radius:999px;
-
-    background:
-        rgba(0,200,255,.05);
-
+    background:rgba(0,200,255,.05);
     color:#9deaff;
-
     font-size:11px;
 }
 
 .status-dot{
     width:6px;
     height:6px;
-
     border-radius:50%;
-
     background:#00ff91;
-
-    box-shadow:
-        0 0 6px #00ff91,
-        0 0 12px #00ff91;
-
-    animation:
-        statusBlink
-        1s
-        infinite;
+    box-shadow:0 0 6px #00ff91;
+    animation:blink 1s infinite;
 }
 
-@keyframes statusBlink{
-
+@keyframes blink{
     50%{
-        opacity:.35;
+        opacity:.35
     }
 }
-
 
 /* =========================
    SECTION
@@ -514,23 +312,16 @@ body::before{
 
 .section{
     position:relative;
-
     margin-top:24px;
-
     padding:2px;
-
     border-radius:22px;
-
     overflow:hidden;
 }
 
-.section::before{
+.section:before{
     content:"";
-
     position:absolute;
-
     inset:-50%;
-
     background:
         conic-gradient(
             from 0deg,
@@ -542,91 +333,52 @@ body::before{
             transparent 270deg,
             transparent 360deg
         );
-
-    animation:
-        rotateBorder
-        4s
-        linear
-        infinite;
+    animation:rotate 4s linear infinite;
 }
 
-@keyframes rotateBorder{
-
+@keyframes rotate{
     to{
-        transform:
-            rotate(360deg);
+        transform:rotate(360deg)
     }
 }
 
 .section-inner{
     position:relative;
-
     z-index:2;
-
     border-radius:20px;
-
-    padding:
-        22px
-        18px
-        18px;
-
+    padding:22px 18px 18px;
     background:
         linear-gradient(
             145deg,
             rgba(10,20,32,.97),
             rgba(3,8,14,.98)
         );
-
-    border:
-        1px solid
-        rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.06);
 }
-
-
-/* =========================
-   SECTION HEAD
-========================= */
 
 .section-head{
     display:flex;
-
     align-items:center;
-
     gap:13px;
-
     margin-bottom:17px;
 }
 
 .section-icon{
     width:42px;
     height:42px;
-
-    flex:0 0 42px;
-
     display:flex;
-
     align-items:center;
-
     justify-content:center;
-
     border-radius:12px;
-
     color:var(--accent);
-
-    background:
-        rgba(255,255,255,.035);
-
-    border:
-        1px solid
-        color-mix(
-            in srgb,
-            var(--accent) 35%,
-            transparent
-        );
-
+    background:rgba(255,255,255,.035);
+    border:1px solid color-mix(
+        in srgb,
+        var(--accent) 35%,
+        transparent
+    );
     box-shadow:
-        0 0 18px
-        color-mix(
+        0 0 18px color-mix(
             in srgb,
             var(--accent) 18%,
             transparent
@@ -635,92 +387,58 @@ body::before{
 
 .section-icon i{
     font-size:18px;
-
-    filter:
-        drop-shadow(
-            0 0 6px
-            var(--accent)
-        );
+    filter:drop-shadow(
+        0 0 6px var(--accent)
+    );
 }
 
 .section-title{
     font-size:18px;
-
     font-weight:700;
 }
 
 .section-title small{
     display:block;
-
     margin-top:1px;
-
     font-size:11px;
-
     font-weight:400;
-
     color:#718092;
 }
 
-
 /* =========================
-   CARD
+   CARDS
 ========================= */
 
 .card{
     position:relative;
-
     display:flex;
-
     align-items:center;
-
     gap:14px;
-
     width:100%;
-
     padding:15px;
-
     margin-top:11px;
-
     border-radius:15px;
-
     text-decoration:none;
-
     color:#fff;
-
     background:
         linear-gradient(
             135deg,
             rgba(255,255,255,.045),
             rgba(255,255,255,.018)
         );
-
-    border:
-        1px solid
-        rgba(255,255,255,.075);
-
+    border:1px solid rgba(255,255,255,.075);
     overflow:hidden;
-
-    transition:
-        transform .25s ease,
-        border-color .25s ease,
-        box-shadow .25s ease;
-
+    transition:.25s;
     cursor:pointer;
 }
 
-.card::before{
+.card:before{
     content:"";
-
     position:absolute;
-
     top:0;
-
     left:-120%;
-
     width:100%;
-
     height:100%;
-
     background:
         linear-gradient(
             90deg,
@@ -728,28 +446,22 @@ body::before{
             rgba(255,255,255,.08),
             transparent
         );
-
     transition:.5s;
 }
 
-.card:hover::before{
+.card:hover:before{
     left:120%;
 }
 
 .card:hover{
-    transform:
-        translateY(-2px);
-
-    border-color:
-        color-mix(
-            in srgb,
-            var(--accent) 55%,
-            transparent
-        );
-
+    transform:translateY(-2px);
+    border-color:color-mix(
+        in srgb,
+        var(--accent) 55%,
+        transparent
+    );
     box-shadow:
-        0 0 25px
-        color-mix(
+        0 0 25px color-mix(
             in srgb,
             var(--accent) 14%,
             transparent
@@ -760,146 +472,90 @@ body::before{
     transform:scale(.98);
 }
 
-
-/* =========================
-   CARD ICON
-========================= */
-
 .card-icon{
-    flex:
-        0 0
-        46px;
-
+    flex:0 0 46px;
     width:46px;
-
     height:46px;
-
     display:flex;
-
     align-items:center;
-
     justify-content:center;
-
     border-radius:13px;
-
-    background:
-        color-mix(
-            in srgb,
-            var(--accent) 9%,
-            transparent
-        );
-
-    border:
-        1px solid
-        color-mix(
-            in srgb,
-            var(--accent) 25%,
-            transparent
-        );
-
-    color:
-        var(--accent);
+    background:color-mix(
+        in srgb,
+        var(--accent) 9%,
+        transparent
+    );
+    border:1px solid color-mix(
+        in srgb,
+        var(--accent) 25%,
+        transparent
+    );
+    color:var(--accent);
 }
 
 .card-icon i{
     font-size:19px;
-
-    filter:
-        drop-shadow(
-            0 0 6px
-            var(--accent)
-        );
+    filter:drop-shadow(
+        0 0 6px var(--accent)
+    );
 }
-
-
-/* =========================
-   CARD CONTENT
-========================= */
 
 .card-content{
     flex:1;
-
     min-width:0;
 }
 
 .card-title{
     font-size:15px;
-
     font-weight:600;
-
     line-height:1.35;
 }
 
 .card-description{
     margin-top:3px;
-
     color:#778698;
-
     font-size:11px;
-
     line-height:1.4;
 }
 
 .card-tag{
     display:inline-block;
-
     margin-top:7px;
-
-    padding:
-        2px
-        7px;
-
+    padding:2px 7px;
     border-radius:5px;
-
     font-family:'Orbitron',sans-serif;
-
     font-size:7px;
-
     letter-spacing:.7px;
-
-    color:
-        var(--accent);
-
-    background:
-        color-mix(
-            in srgb,
-            var(--accent) 7%,
-            transparent
-        );
-
-    border:
-        1px solid
-        color-mix(
-            in srgb,
-            var(--accent) 18%,
-            transparent
-        );
+    color:var(--accent);
+    background:color-mix(
+        in srgb,
+        var(--accent) 7%,
+        transparent
+    );
+    border:1px solid color-mix(
+        in srgb,
+        var(--accent) 18%,
+        transparent
+    );
 }
 
 .arrow{
     color:#536172;
-
     font-size:13px;
-
     transition:.25s;
 }
 
 .card:hover .arrow{
-    color:
-        var(--accent);
-
-    transform:
-        translateX(3px);
+    color:var(--accent);
+    transform:translateX(3px);
 }
 
-
 /* =========================
-   RED
+   COLORS
 ========================= */
 
 .red{
-    --accent:
-        var(--red);
+    --accent:var(--red)
 }
 
 .red .section-inner{
@@ -917,50 +573,32 @@ body::before{
 }
 
 .red .section-icon{
-    background:
-        rgba(255,23,56,.08);
-
-    border-color:
-        rgba(255,23,56,.4);
-
-    box-shadow:
-        0 0 20px
-        rgba(255,23,56,.15);
+    background:rgba(255,23,56,.08);
+    border-color:rgba(255,23,56,.4);
 }
 
 .red .card{
-    border-color:
-        rgba(255,23,56,.2);
-
+    border-color:rgba(255,23,56,.2);
     background:
         linear-gradient(
             135deg,
             rgba(255,23,56,.08),
             rgba(255,255,255,.018)
         );
-
     box-shadow:
-        0 0 20px
-        rgba(255,23,56,.07);
+        0 0 20px rgba(255,23,56,.07);
 }
 
 .red .card:hover{
-    border-color:
-        rgba(255,23,56,.65);
-
+    border-color:rgba(255,23,56,.65);
     box-shadow:
-        0 0 30px
-        rgba(255,23,56,.2);
+        0 0 30px rgba(255,23,56,.2);
 }
 
 .red .card-icon{
     color:#ff304f;
-
-    border-color:
-        rgba(255,23,56,.35);
-
-    background:
-        rgba(255,23,56,.09);
+    border-color:rgba(255,23,56,.35);
+    background:rgba(255,23,56,.09);
 }
 
 .red .card-description{
@@ -969,69 +607,130 @@ body::before{
 
 .red .card-tag{
     color:#ff536a;
-
-    border-color:
-        rgba(255,23,56,.3);
-
-    background:
-        rgba(255,23,56,.07);
+    border-color:rgba(255,23,56,.3);
+    background:rgba(255,23,56,.07);
 }
 
 .badge{
     margin-left:auto;
-
-    padding:
-        5px
-        9px;
-
+    padding:5px 9px;
     border-radius:7px;
-
     color:#ff6b7d;
-
-    background:
-        rgba(255,23,56,.07);
-
-    border:
-        1px solid
-        rgba(255,23,56,.2);
-
+    background:rgba(255,23,56,.07);
+    border:1px solid rgba(255,23,56,.2);
     font-size:9px;
 }
 
-
-/* =========================
-   BLUE
-========================= */
-
 .blue{
-    --accent:
-        var(--blue);
+    --accent:var(--blue)
 }
-
-
-/* =========================
-   GREEN
-========================= */
 
 .green{
-    --accent:
-        var(--green);
+    --accent:var(--green)
 }
 
+/* =========================
+   BLACK / WHITE MINI TUTORIALS
+========================= */
+
+.mini-guides{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:10px;
+    margin-top:24px;
+}
+
+.mini-guide{
+    position:relative;
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    justify-content:space-between;
+    min-height:118px;
+    padding:15px;
+    border-radius:16px;
+    color:#fff;
+    text-decoration:none;
+    background:
+        linear-gradient(
+            145deg,
+            #161616,
+            #070707
+        );
+    border:1px solid rgba(255,255,255,.22);
+    box-shadow:
+        inset 0 0 18px rgba(255,255,255,.025),
+        0 0 18px rgba(0,0,0,.35);
+    overflow:hidden;
+    transition:.25s ease;
+}
+
+.mini-guide:before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+        linear-gradient(
+            115deg,
+            transparent 25%,
+            rgba(255,255,255,.12),
+            transparent 70%
+        );
+    transform:translateX(-120%);
+    transition:.55s ease;
+}
+
+.mini-guide:hover:before{
+    transform:translateX(120%);
+}
+
+.mini-guide:hover{
+    transform:translateY(-2px);
+    border-color:rgba(255,255,255,.65);
+    box-shadow:
+        0 0 24px rgba(255,255,255,.08);
+}
+
+.mini-icon{
+    width:36px;
+    height:36px;
+    border-radius:10px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#fff;
+    color:#090909;
+    font-size:15px;
+    box-shadow:
+        0 0 12px rgba(255,255,255,.12);
+}
+
+.mini-title{
+    margin-top:10px;
+    font-size:13px;
+    font-weight:600;
+    line-height:1.35;
+    position:relative;
+    z-index:1;
+}
+
+.mini-arrow{
+    position:absolute;
+    right:13px;
+    bottom:13px;
+    color:#888;
+    font-size:11px;
+}
 
 /* =========================
-   FOOTER
+   FOOTER / TOAST
 ========================= */
 
 .footer{
     text-align:center;
-
     margin-top:28px;
-
     color:#536172;
-
     font-size:10px;
-
     letter-spacing:.4px;
 }
 
@@ -1039,63 +738,34 @@ body::before{
     color:#7e8c9e;
 }
 
-
-/* =========================
-   TOAST
-========================= */
-
 .toast{
     position:fixed;
-
     left:50%;
-
     bottom:22px;
-
     transform:
         translate(-50%,30px)
         scale(.95);
-
     opacity:0;
-
     z-index:99;
-
-    padding:
-        11px
-        16px;
-
+    padding:11px 16px;
     border-radius:12px;
-
-    background:
-        rgba(7,13,21,.95);
-
-    border:
-        1px solid
-        rgba(0,200,255,.25);
-
+    background:rgba(7,13,21,.95);
+    border:1px solid rgba(0,200,255,.25);
     box-shadow:
-        0 10px 35px
-        rgba(0,0,0,.45);
-
+        0 10px 35px rgba(0,0,0,.45);
     color:#dce8f3;
-
     font-size:12px;
-
     pointer-events:none;
-
-    transition:.3s ease;
-
-    backdrop-filter:
-        blur(15px);
+    transition:.3s;
+    backdrop-filter:blur(15px);
 }
 
 .toast.show{
     opacity:1;
-
     transform:
         translate(-50%,0)
         scale(1);
 }
-
 
 /* =========================
    MOBILE
@@ -1105,7 +775,6 @@ body::before{
 
     .container{
         width:92%;
-
         padding-top:25px;
     }
 
@@ -1118,10 +787,7 @@ body::before{
     }
 
     .section-inner{
-        padding:
-            18px
-            13px
-            14px;
+        padding:18px 13px 14px;
     }
 
     .section-title{
@@ -1130,15 +796,12 @@ body::before{
 
     .card{
         padding:13px;
-
         gap:11px;
     }
 
     .card-icon{
         flex-basis:42px;
-
         width:42px;
-
         height:42px;
     }
 
@@ -1153,25 +816,31 @@ body::before{
     .badge{
         display:none;
     }
+
+    .mini-guides{
+        gap:8px;
+    }
+
+    .mini-guide{
+        min-height:112px;
+        padding:13px;
+    }
+
+    .mini-title{
+        font-size:12px;
+    }
 }
 
 </style>
-
 </head>
-
 
 <body>
 
-
 <div class="glow blue"></div>
-
 <div class="glow green"></div>
-
 <div class="glow red"></div>
 
-
 <div class="particles">
-
     <span></span>
     <span></span>
     <span></span>
@@ -1180,59 +849,87 @@ body::before{
     <span></span>
     <span></span>
     <span></span>
-
 </div>
 
-
-
 <div class="container">
-
-
-<!-- =========================
-     HEADER
-========================= -->
 
 <header class="header">
 
     <div class="logo">
-
         VaiperX
-
-        <span class="crown">
-            👑
-        </span>
-
+        <span class="crown">👑</span>
     </div>
-
 
     <div class="lightning">
-
         <span class="lightning-line"></span>
-
         <i class="fa-solid fa-bolt"></i>
-
         <span class="lightning-line"></span>
-
     </div>
-
 
     <div class="subtitle">
-
         Premium Installation Center
-
     </div>
 
-
     <div class="status">
-
         <span class="status-dot"></span>
-
         SYSTEM ONLINE
-
     </div>
 
 </header>
 
+
+<!-- =========================
+     MINI TUTORIALS
+========================= -->
+
+<div class="mini-guides">
+
+    <a
+        class="mini-guide"
+        href="https://drive.google.com/file/d/1FwCwhkB_JI_StLRDFslRTfY-AxBcTh5O/view?usp=drivesdk"
+        target="_blank"
+        rel="noopener noreferrer"
+        onclick="showToast('กำลังเปิดคลิปสอนใช้งาน...')"
+    >
+
+        <div class="mini-icon">
+            <i class="fa-solid fa-play"></i>
+        </div>
+
+        <div class="mini-title">
+            สอนใช้งาน Configuration
+        </div>
+
+        <div class="mini-arrow">
+            <i class="fa-solid fa-chevron-right"></i>
+        </div>
+
+    </a>
+
+
+    <a
+        class="mini-guide"
+        href="https://drive.google.com/file/d/1csYfIe5xp2RSwOHa53qgfRfLE-GwycPr/view?usp=drivesdk"
+        target="_blank"
+        rel="noopener noreferrer"
+        onclick="showToast('กำลังเปิดวิธีแก้ปัญหาเข้าเกมไม่ได้...')"
+    >
+
+        <div class="mini-icon">
+            <i class="fa-solid fa-wrench"></i>
+        </div>
+
+        <div class="mini-title">
+            สอนแก้เข้าเกมไม่ได้
+        </div>
+
+        <div class="mini-arrow">
+            <i class="fa-solid fa-chevron-right"></i>
+        </div>
+
+    </a>
+
+</div>
 
 
 <!-- =========================
@@ -1241,97 +938,67 @@ body::before{
 
 <section class="section red">
 
-
 <div class="section-inner">
 
+<div class="section-head">
 
-    <div class="section-head">
+    <div class="section-icon">
+        <i class="fa-solid fa-file-shield"></i>
+    </div>
 
-
-        <div class="section-icon">
-
-            <i class="fa-solid fa-file-shield"></i>
-
-        </div>
-
-
+    <div>
         <div class="section-title">
-
             Configuration File
-
-            <small>
-
-                ดาวน์โหลดไฟล์ Configuration
-
-            </small>
-
         </div>
 
+        <small>
+            ไฟล์ Configuration สำหรับอุปกรณ์
+        </small>
+    </div>
 
-        <div class="badge">
+    <div class="badge">
+        <i class="fa-solid fa-bolt"></i>
+        CONFIG
+    </div>
 
-            <i class="fa-solid fa-bolt"></i>
+</div>
 
-            CONFIG
 
+<a
+    class="card"
+    href="#"
+    onclick="downloadConfig(event)"
+>
+
+    <div class="card-icon">
+        <i class="fa-solid fa-file-arrow-down"></i>
+    </div>
+
+    <div class="card-content">
+
+        <div class="card-title">
+            ดาวน์โหลดไฟล์ Configuration
         </div>
 
+        <div class="card-description">
+            ดาวน์โหลด VIPERXMOD.mobileconfig โดยตรง
+        </div>
+
+        <span class="card-tag">
+            DOWNLOAD
+        </span>
 
     </div>
 
+    <div class="arrow">
+        <i class="fa-solid fa-chevron-right"></i>
+    </div>
 
-
-    <a
-        class="card"
-        href="#"
-        onclick="downloadConfig(event)"
-    >
-
-        <div class="card-icon">
-
-            <i class="fa-solid fa-file-arrow-down"></i>
-
-        </div>
-
-
-        <div class="card-content">
-
-            <div class="card-title">
-
-                ดาวน์โหลดไฟล์ Configuration
-
-            </div>
-
-
-            <div class="card-description">
-
-                ดาวน์โหลด VIPERXMOD.mobileconfig
-
-            </div>
-
-
-            <span class="card-tag">
-
-                DOWNLOAD
-
-            </span>
-
-        </div>
-
-
-        <div class="arrow">
-
-            <i class="fa-solid fa-chevron-right"></i>
-
-        </div>
-
-    </a>
-
+</a>
 
 </div>
 
 </section>
-
 
 
 <!-- =========================
@@ -1340,190 +1007,134 @@ body::before{
 
 <section class="section blue">
 
-
 <div class="section-inner">
 
+<div class="section-head">
 
-    <div class="section-head">
+    <div class="section-icon">
+        <i class="fa-solid fa-mobile-screen-button"></i>
+    </div>
 
-
-        <div class="section-icon">
-
-            <i class="fa-solid fa-mobile-screen-button"></i>
-
-        </div>
-
-
+    <div>
         <div class="section-title">
-
             ช่องสำหรับ แอปลงฟรี
-
-            <small>
-
-                E-Sign Installation
-
-            </small>
-
         </div>
 
+        <small>
+            Free App Installation
+        </small>
+    </div>
+
+</div>
+
+
+<a
+    class="card"
+    href="https://skibiditech.co/"
+    target="_blank"
+    rel="noopener noreferrer"
+    onclick="showToast('กำลังเปิดลิงก์โหลด E-Sign...')"
+>
+
+    <div class="card-icon">
+        <i class="fa-solid fa-download"></i>
+    </div>
+
+    <div class="card-content">
+
+        <div class="card-title">
+            ลิงก์โหลด E-Sign
+        </div>
+
+        <div class="card-description">
+            ดาวน์โหลดแอป E-Sign สำหรับติดตั้งแอป
+        </div>
+
+        <span class="card-tag">
+            DOWNLOAD
+        </span>
 
     </div>
 
+    <div class="arrow">
+        <i class="fa-solid fa-chevron-right"></i>
+    </div>
+
+</a>
 
 
-    <a
-        class="card"
-        href="https://skibiditech.co/"
-        target="_blank"
-        rel="noopener noreferrer"
-        onclick="showToast('กำลังเปิดลิงก์โหลด E-Sign...')"
-    >
+<a
+    class="card"
+    href="https://youtu.be/E8g6eto6ygg?si=vP_qKiYfjEgU7FC-"
+    target="_blank"
+    rel="noopener noreferrer"
+    onclick="showToast('กำลังเปิดคลิปสอนติดตั้ง...')"
+>
 
-        <div class="card-icon">
+    <div class="card-icon">
+        <i class="fa-solid fa-circle-play"></i>
+    </div>
 
-            <i class="fa-solid fa-download"></i>
+    <div class="card-content">
 
+        <div class="card-title">
+            สอนติดตั้ง E-Sign และ สอนติดตั้งพาแนล
         </div>
 
-
-        <div class="card-content">
-
-            <div class="card-title">
-
-                ลิงก์โหลด E-Sign
-
-            </div>
-
-
-            <div class="card-description">
-
-                ดาวน์โหลด E-Sign สำหรับติดตั้งแอป
-
-            </div>
-
-
-            <span class="card-tag">
-
-                DOWNLOAD
-
-            </span>
-
+        <div class="card-description">
+            ดูขั้นตอนการติดตั้งแบบละเอียดผ่านวิดีโอ
         </div>
 
+        <span class="card-tag">
+            TUTORIAL
+        </span>
 
-        <div class="arrow">
+    </div>
 
-            <i class="fa-solid fa-chevron-right"></i>
+    <div class="arrow">
+        <i class="fa-solid fa-chevron-right"></i>
+    </div>
 
+</a>
+
+
+<a
+    class="card"
+    href="https://www.mediafire.com/file/8y17woeyt1hyr2n/VIPERXMOD+v1.ipa/file"
+    target="_blank"
+    rel="noopener noreferrer"
+    onclick="showToast('กำลังเปิดลิงก์พาแนล...')"
+>
+
+    <div class="card-icon">
+        <i class="fa-solid fa-link"></i>
+    </div>
+
+    <div class="card-content">
+
+        <div class="card-title">
+            ลิงก์พาแนลสำหรับ E-Sign
         </div>
 
-    </a>
-
-
-
-    <a
-        class="card"
-        href="https://youtu.be/E8g6eto6ygg?si=vP_qKiYfjEgU7FC-"
-        target="_blank"
-        rel="noopener noreferrer"
-        onclick="showToast('กำลังเปิดคลิปสอนติดตั้ง...')"
-    >
-
-        <div class="card-icon">
-
-            <i class="fa-solid fa-circle-play"></i>
-
+        <div class="card-description">
+            เปิดลิงก์ไฟล์พาแนลสำหรับใช้งานผ่าน E-Sign
         </div>
 
+        <span class="card-tag">
+            PANEL
+        </span>
 
-        <div class="card-content">
+    </div>
 
-            <div class="card-title">
+    <div class="arrow">
+        <i class="fa-solid fa-chevron-right"></i>
+    </div>
 
-                สอนติดตั้ง E-Sign และ สอนติดตั้งพาแนล
-
-            </div>
-
-
-            <div class="card-description">
-
-                ดูขั้นตอนการติดตั้งแบบละเอียดผ่านวิดีโอ
-
-            </div>
-
-
-            <span class="card-tag">
-
-                TUTORIAL
-
-            </span>
-
-        </div>
-
-
-        <div class="arrow">
-
-            <i class="fa-solid fa-chevron-right"></i>
-
-        </div>
-
-    </a>
-
-
-
-    <a
-        class="card"
-        href="https://www.mediafire.com/file/8y17woeyt1hyr2n/VIPERXMOD+v1.ipa/file"
-        target="_blank"
-        rel="noopener noreferrer"
-        onclick="showToast('กำลังเปิดลิงก์พาแนล...')"
-    >
-
-        <div class="card-icon">
-
-            <i class="fa-solid fa-link"></i>
-
-        </div>
-
-
-        <div class="card-content">
-
-            <div class="card-title">
-
-                ลิงก์พาแนลสำหรับ E-Sign
-
-            </div>
-
-
-            <div class="card-description">
-
-                เปิดไฟล์พาแนลสำหรับใช้งานผ่าน E-Sign
-
-            </div>
-
-
-            <span class="card-tag">
-
-                PANEL
-
-            </span>
-
-        </div>
-
-
-        <div class="arrow">
-
-            <i class="fa-solid fa-chevron-right"></i>
-
-        </div>
-
-    </a>
-
+</a>
 
 </div>
 
 </section>
-
 
 
 <!-- =========================
@@ -1532,140 +1143,99 @@ body::before{
 
 <section class="section green">
 
-
 <div class="section-inner">
 
+<div class="section-head">
 
-    <div class="section-head">
+    <div class="section-icon">
+        <i class="fa-solid fa-box-open"></i>
+    </div>
 
-
-        <div class="section-icon">
-
-            <i class="fa-solid fa-box-open"></i>
-
-        </div>
-
-
+    <div>
         <div class="section-title">
-
             ช่องสำหรับ GBox
-
-            <small>
-
-                GBox Installation
-
-            </small>
-
         </div>
 
+        <small>
+            GBox Installation
+        </small>
+    </div>
+
+</div>
+
+
+<a
+    class="card"
+    href="https://youtube.com/shorts/_EGL9jUhoUs?si=8prYTcBrOcUl-H1z"
+    target="_blank"
+    rel="noopener noreferrer"
+    onclick="showToast('กำลังเปิดคลิปสอนติดตั้งผ่าน GBox...')"
+>
+
+    <div class="card-icon">
+        <i class="fa-solid fa-circle-play"></i>
+    </div>
+
+    <div class="card-content">
+
+        <div class="card-title">
+            คลิปสอนติดตั้งผ่าน GBox
+        </div>
+
+        <div class="card-description">
+            ดูขั้นตอนการติดตั้งผ่าน GBox แบบละเอียด
+        </div>
+
+        <span class="card-tag">
+            TUTORIAL
+        </span>
 
     </div>
 
+    <div class="arrow">
+        <i class="fa-solid fa-chevron-right"></i>
+    </div>
+
+</a>
 
 
-    <a
-        class="card"
-        href="https://youtube.com/shorts/_EGL9jUhoUs?si=8prYTcBrOcUl-H1z"
-        target="_blank"
-        rel="noopener noreferrer"
-        onclick="showToast('กำลังเปิดคลิปสอนติดตั้งผ่าน GBox...')"
-    >
+<a
+    class="card"
+    href="https://drive.google.com/file/d/18pmmOhQ22XyGYKAVuwyeWpkwoCl5oTzU/view?usp=drivesdk"
+    target="_blank"
+    rel="noopener noreferrer"
+    onclick="showToast('กำลังเปิดลิงก์พาแนลสำหรับ GBox...')"
+>
 
-        <div class="card-icon">
+    <div class="card-icon">
+        <i class="fa-solid fa-link"></i>
+    </div>
 
-            <i class="fa-solid fa-circle-play"></i>
+    <div class="card-content">
 
+        <div class="card-title">
+            ลิงก์พาแนลสำหรับ GBox
         </div>
 
-
-        <div class="card-content">
-
-            <div class="card-title">
-
-                คลิปสอนติดตั้งผ่าน GBox
-
-            </div>
-
-
-            <div class="card-description">
-
-                ดูขั้นตอนการติดตั้งผ่าน GBox แบบละเอียด
-
-            </div>
-
-
-            <span class="card-tag">
-
-                TUTORIAL
-
-            </span>
-
+        <div class="card-description">
+            เปิดไฟล์พาแนลสำหรับติดตั้งผ่าน GBox
         </div>
 
+        <span class="card-tag">
+            PANEL
+        </span>
 
-        <div class="arrow">
+    </div>
 
-            <i class="fa-solid fa-chevron-right"></i>
+    <div class="arrow">
+        <i class="fa-solid fa-chevron-right"></i>
+    </div>
 
-        </div>
-
-    </a>
-
-
-
-    <a
-        class="card"
-        href="https://drive.google.com/file/d/18pmmOhQ22XyGYKAVuwyeWpkwoCl5oTzU/view?usp=drivesdk"
-        target="_blank"
-        rel="noopener noreferrer"
-        onclick="showToast('กำลังเปิดลิงก์พาแนลสำหรับ GBox...')"
-    >
-
-        <div class="card-icon">
-
-            <i class="fa-solid fa-link"></i>
-
-        </div>
-
-
-        <div class="card-content">
-
-            <div class="card-title">
-
-                ลิงก์พาแนลสำหรับ GBox
-
-            </div>
-
-
-            <div class="card-description">
-
-                เปิดไฟล์พาแนลสำหรับติดตั้งผ่าน GBox
-
-            </div>
-
-
-            <span class="card-tag">
-
-                PANEL
-
-            </span>
-
-        </div>
-
-
-        <div class="arrow">
-
-            <i class="fa-solid fa-chevron-right"></i>
-
-        </div>
-
-    </a>
-
+</a>
 
 </div>
 
 </section>
-
 
 
 <!-- =========================
@@ -1674,10 +1244,7 @@ body::before{
 
 <div class="footer">
 
-    <strong>
-        VAIPERX
-    </strong>
-
+    <strong>VAIPERX</strong>
     • Premium Installation Center
 
     <br>
@@ -1686,97 +1253,71 @@ body::before{
 
 </div>
 
-
 </div>
-
 
 
 <div id="toast" class="toast"></div>
 
 
-
 <script>
 
-/* =====================================================
+/* =========================
+   EMBEDDED CONFIGURATION
+========================= */
+
+const configBase64 = "PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPCFET0NUWVBFIHBsaXN0IFBVQkxJQyAiLS8vQXBwbGUvL0RURCBQTElTVCAxLjAvL0VOIiAiaHR0cDovL3d3dy5hcHBsZS5jb20vRFREcy9Qcm9wZXJ0eUxpc3QtMS4wLmR0ZCI+CjxwbGlzdCB2ZXJzaW9uPSIxLjAiPgo8ZGljdD4KCTxrZXk+UGF5bG9hZENvbnRlbnQ8L2tleT4KCTxhcnJheT4KCQk8ZGljdD4KCQkJPGtleT5ETlNTZXR0aW5nczwva2V5PgoJCQk8ZGljdD4KCQkJCTxrZXk+RE5TUHJvdG9jb2w8L2tleT4KCQkJCTxzdHJpbmc+SFRUUFM8L3N0cmluZz4KCQkJCTxrZXk+U2VydmVyVVJMPC9rZXk+CgkJCQk8c3RyaW5nPmh0dHBzOi8vYXBwbGUuZG5zLm5leHRkbnMuaW8vODQ0OTk4PC9zdHJpbmc+CgkJCTwvZGljdD4KCQkJPGtleT5QYXlsb2FkRGlzcGxheU5hbWU8L2tleT4KCQkJPHN0cmluZz5WSVBFUlhNT0QgU2VjdXJlIEROUzwvc3RyaW5nPgoJCQk8a2V5PlBheWxvYWRJZGVudGlmaWVyPC9rZXk+CgkJCTxzdHJpbmc+Y29tLnZpcGVyeG1vZC5uZXh0ZG5zLjg0NDk5OC5zeXN0ZW0uc2V0dGluZ3M8L3N0cmluZz4KCQkJPGtleT5QYXlsb2FkVHlwZTwva2V5PgoJCQk8c3RyaW5nPmNvbS5hcHBsZS5kbnNTZXR0aW5ncy5tYW5hZ2VkPC9zdHJpbmc+CgkJCTxrZXk+UGF5bG9hZFVVSUQ8L2tleT4KCQkJPHN0cmluZz5CRjhEQzg3QS0zNzQ1LTQ3NEQtOEEwNS1CQzlFRDBBODRCRTU8L3N0cmluZz4KCQkJPGtleT5QYXlsb2FkVmVyc2lvbjwva2V5PgoJCQk8aW50ZWdlcj4xPC9pbnRlZ2VyPgoJCQk8a2V5Pk9uRGVtYW5kRW5hYmxlZDwva2V5PgoJCQk8aW50ZWdlcj4xPC9pbnRlZ2VyPgoJCQk8a2V5Pk9uRGVtYW5kUnVsZXM8L2tleT4KCQkJPGFycmF5PgoJCQkJPGRpY3Q+CgkJCQkJPGtleT5BY3Rpb248L2tleT4KCQkJCQk8c3RyaW5nPkNvbm5lY3Q8L3N0cmluZz4KCQkJCQk8a2V5PkludGVyZmFjZVR5cGVNYXRjaDwva2V5PgoJCQkJCTxzdHJpbmc+V2lGaTwvc3RyaW5nPgoJCQkJPC9kaWN0PgoJCQkJPGRpY3Q+CgkJCQkJPGtleT5BY3Rpb248L2tleT4KCQkJCQk8c3RyaW5nPkNvbm5lY3Q8L3N0cmluZz4KCQkJCQk8a2V5PkludGVyZmFjZVR5cGVNYXRjaDwva2V5PgoJCQkJCTxzdHJpbmc+Q2VsbHVsYXI8L3N0cmluZz4KCQkJCTwvZGljdD4KCQkJCTxkaWN0PgoJCQkJCTxrZXk+QWN0aW9uPC9rZXk+CgkJCQkJPHN0cmluZz5Db25uZWN0PC9zdHJpbmc+CgkJCQk8L2RpY3Q+CgkJCTwvYXJyYXk+CgkJPC9kaWN0PgoJPC9hcnJheT4KCTxrZXk+UGF5bG9hZERlc2NyaXB0aW9uPC9rZXk+Cgk8c3RyaW5nPlZJUEVSWE1PRCBTeXN0ZW0gRE5TIFByb2ZpbGUg4oCUIOC5guC4m+C4o+C5hOC4n+C4peC5jCBETlMg4LiC4Lit4LiHIFZJUEVSWE1PRCDguKrguLPguKvguKPguLHguJrguYPguIrguYnguIfguLLguJkgRE5TLW92ZXItSFRUUFMg4Lia4LiZIFdp4oCRRmkg4LmB4Lil4Liw4LmA4LiE4Lij4Li34Lit4LiC4LmI4Liy4Lii4Lih4Li34Lit4LiW4Li34LitPC9zdHJpbmc+Cgk8a2V5PlBheWxvYWREaXNwbGF5TmFtZTwva2V5PgoJPHN0cmluZz5WSVBFUlhNT0QgU2VjdXJlIEROUzwvc3RyaW5nPgoJPGtleT5QYXlsb2FkT3JnYW5pemF0aW9uPC9rZXk+Cgk8c3RyaW5nPlZJUEVSWE1PRDwvc3RyaW5nPgoJPGtleT5QYXlsb2FkSWRlbnRpZmllcjwva2V5PgoJPHN0cmluZz5jb20udmlwZXJ4bW9kLm5leHRkbnMuODQ0OTk4LnN5c3RlbTwvc3RyaW5nPgoJPGtleT5QYXlsb2FkUmVtb3ZhbERpc2FsbG93ZWQ8L2tleT4KCTxmYWxzZS8+Cgk8a2V5PlBheWxvYWRTY29wZTwva2V5PgoJPHN0cmluZz5TeXN0ZW08L3N0cmluZz4KCTxrZXk+UGF5bG9hZFR5cGU8L2tleT4KCTxzdHJpbmc+Q29uZmlndXJhdGlvbjwvc3RyaW5nPgoJPGtleT5QYXlsb2FkVVVJRDwva2V5PgoJPHN0cmluZz5DMzVFNzlGMi1DMzY2LTQ2NkYtOEY2Mi0wRERCNUEzOEEyRDg8L3N0cmluZz4KCTxrZXk+UGF5bG9hZFZlcnNpb248L2tleT4KCTxpbnRlZ2VyPjE8L2ludGVnZXI+CjwvZGljdD4KPC9wbGlzdD4K";
+
+
+/* =========================
    TOAST
-===================================================== */
-
-let toastTimer;
-
+========================= */
 
 function showToast(message){
 
     const toast =
         document.getElementById("toast");
 
-    toast.textContent =
-        message;
+    toast.textContent = message;
 
     toast.classList.add("show");
 
-    clearTimeout(
-        toastTimer
-    );
+    clearTimeout(window.toastTimer);
 
-    toastTimer =
+    window.toastTimer =
         setTimeout(
-            function(){
-
-                toast.classList.remove("show");
-
-            },
+            () => toast.classList.remove("show"),
             2200
         );
-
 }
 
 
-/* =====================================================
-   EMBEDDED VIPERXMOD.MOBILECONFIG
-   ไฟล์ที่คุณอัปโหลดถูกฝังไว้ตรงนี้
-===================================================== */
-
-const configBase64 = "PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPCFET0NUWVBFIHBsaXN0IFBVQkxJQyAiLS8vQXBwbGUvL0RURCBQTElTVCAxLjAvL0VOIiAiaHR0cDovL3d3dy5hcHBsZS5jb20vRFREcy9Qcm9wZXJ0eUxpc3QtMS4wLmR0ZCI+CjxwbGlzdCB2ZXJzaW9uPSIxLjAiPgo8ZGljdD4KCTxrZXk+UGF5bG9hZENvbnRlbnQ8L2tleT4KCTxhcnJheT4KCQk8ZGljdD4KCQkJPGtleT5ETlNTZXR0aW5nczwva2V5PgoJCQk8ZGljdD4KCQkJCTxrZXk+RE5TUHJvdG9jb2w8L2tleT4KCQkJCTxzdHJpbmc+SFRUUFM8L3N0cmluZz4KCQkJCTxrZXk+U2VydmVyVVJMPC9rZXk+CgkJCQk8c3RyaW5nPmh0dHBzOi8vYXBwbGUuZG5zLm5leHRkbnMuaW8vODQ0OTk4PC9zdHJpbmc+CgkJCTwvZGljdD4KCQkJPGtleT5QYXlsb2FkRGlzcGxheU5hbWU8L2tleT4KCQkJPHN0cmluZz5WSVBFUlhNT0QgU2VjdXJlIEROUzwvc3RyaW5nPgoJCQk8a2V5PlBheWxvYWRJZGVudGlmaWVyPC9rZXk+CgkJCTxzdHJpbmc+Y29tLnZpcGVyeG1vZC5uZXh0ZG5zLjg0NDk5OC5zeXN0ZW0uc2V0dGluZ3M8L3N0cmluZz4KCQkJPGtleT5QYXlsb2FkVHlwZTwva2V5PgoJCQk8c3RyaW5nPmNvbS5hcHBsZS5kbnNTZXR0aW5ncy5tYW5hZ2VkPC9zdHJpbmc+CgkJCTxrZXk+UGF5bG9hZFVVSUQ8L2tleT4KCQkJPHN0cmluZz5CRjhEQzg3QS0zNzQ1LTQ3NEQtOEEwNS1CQzlFRDBBODRCRTU8L3N0cmluZz4KCQkJPGtleT5QYXlsb2FkVmVyc2lvbjwva2V5PgoJCQk8aW50ZWdlcj4xPC9pbnRlZ2VyPgoJCQk8a2V5Pk9uRGVtYW5kRW5hYmxlZDwva2V5PgoJCQk8aW50ZWdlcj4xPC9pbnRlZ2VyPgoJCQk8a2V5Pk9uRGVtYW5kUnVsZXM8L2tleT4KCQkJPGFycmF5PgoJCQkJPGRpY3Q+CgkJCQkJPGtleT5BY3Rpb248L2tleT4KCQkJCQk8c3RyaW5nPkNvbm5lY3Q8L3N0cmluZz4KCQkJCQk8a2V5PkludGVyZmFjZVR5cGVNYXRjaDwva2V5PgoJCQkJCTxzdHJpbmc+V2lGaTwvc3RyaW5nPgoJCQkJPC9kaWN0PgoJCQkJPGRpY3Q+CgkJCQkJPGtleT5BY3Rpb248L2tleT4KCQkJCQk8c3RyaW5nPkNvbm5lY3Q8L3N0cmluZz4KCQkJCQk8a2V5PkludGVyZmFjZVR5cGVNYXRjaDwva2V5PgoJCQkJCTxzdHJpbmc+Q2VsbHVsYXI8L3N0cmluZz4KCQkJCTwvZGljdD4KCQkJCTxkaWN0PgoJCQkJCTxrZXk+QWN0aW9uPC9rZXk+CgkJCQkJPHN0cmluZz5Db25uZWN0PC9zdHJpbmc+CgkJCQk8L2RpY3Q+CgkJCTwvYXJyYXk+CgkJPC9kaWN0PgoJPC9hcnJheT4KCTxrZXk+UGF5bG9hZERlc2NyaXB0aW9uPC9rZXk+Cgk8c3RyaW5nPlZJUEVSWE1PRCBTeXN0ZW0gRE5TIFByb2ZpbGUg4oCUIOC5guC4m+C4o+C5hOC4n+C4peC5jCBETlMg4LiC4Lit4LiHIFZJUEVSWE1PRCDguKrguLPguKvguKPguLHguJrguYPguIrguYnguIfguLLguJkgRE5TLW92ZXItSFRUUFMg4Lia4LiZIFdp4oCRRmkg4LmB4Lil4Liw4LmA4LiE4Lij4Li34Lit4LiC4LmI4Liy4Lii4Lih4Li34Lit4LiW4Li34LitPC9zdHJpbmc+Cgk8a2V5PlBheWxvYWREaXNwbGF5TmFtZTwva2V5PgoJPHN0cmluZz5WSVBFUlhNT0QgU2VjdXJlIEROUzwvc3RyaW5nPgoJPGtleT5QYXlsb2FkT3JnYW5pemF0aW9uPC9rZXk+Cgk8c3RyaW5nPlZJUEVSWE1PRDwvc3RyaW5nPgoJPGtleT5QYXlsb2FkSWRlbnRpZmllcjwva2V5PgoJPHN0cmluZz5jb20udmlwZXJ4bW9kLm5leHRkbnMuODQ0OTk4LnN5c3RlbTwvc3RyaW5nPgoJPGtleT5QYXlsb2FkUmVtb3ZhbERpc2FsbG93ZWQ8L2tleT4KCTxmYWxzZS8+Cgk8a2V5PlBheWxvYWRTY29wZTwva2V5PgoJPHN0cmluZz5TeXN0ZW08L3N0cmluZz4KCTxrZXk+UGF5bG9hZFR5cGU8L2tleT4KCTxzdHJpbmc+Q29uZmlndXJhdGlvbjwvc3RyaW5nPgoJPGtleT5QYXlsb2FkVVVJRDwva2V5PgoJPHN0cmluZz5DMzVFNzlGMi1DMzY2LTQ2NkYtOEY2Mi0wRERCNUEzOEEyRDg8L3N0cmluZz4KCTxrZXk+UGF5bG9hZFZlcnNpb248L2tleT4KCTxpbnRlZ2VyPjE8L2ludGVnZXI+CjwvZGljdD4KPC9wbGlzdD4K";
-
-
-/* =====================================================
-   CONVERT BASE64 → FILE
-===================================================== */
+/* =========================
+   BASE64 → BLOB
+========================= */
 
 function base64ToBlob(base64,mime){
 
-    const binary =
-        atob(base64);
+    const binary = atob(base64);
 
-    const chunk =
-        8192;
+    const chunk = 1024 * 8;
 
-    const parts =
-        [];
-
+    const parts = [];
 
     for(
-        let i=0;
-        i<binary.length;
-        i+=chunk
+        let i = 0;
+        i < binary.length;
+        i += chunk
     ){
 
         const slice =
-            binary.slice(
-                i,
-                i+chunk
-            );
-
+            binary.slice(i,i + chunk);
 
         const bytes =
-            new Uint8Array(
-                slice.length
-            );
-
+            new Uint8Array(slice.length);
 
         for(
-            let j=0;
-            j<slice.length;
+            let j = 0;
+            j < slice.length;
             j++
         ){
 
@@ -1785,36 +1326,29 @@ function base64ToBlob(base64,mime){
 
         }
 
-
         parts.push(bytes);
-
     }
-
 
     return new Blob(
         parts,
         {
-            type:
-                "application/x-apple-aspen-config"
+            type:mime
         }
     );
-
 }
 
 
-/* =====================================================
-   DOWNLOAD
-===================================================== */
+/* =========================
+   DOWNLOAD CONFIGURATION
+========================= */
 
 function downloadConfig(event){
 
     event.preventDefault();
 
-
     showToast(
         "กำลังเตรียมไฟล์ VIPERXMOD.mobileconfig..."
     );
-
 
     try{
 
@@ -1824,75 +1358,48 @@ function downloadConfig(event){
                 "application/x-apple-aspen-config"
             );
 
-
         const url =
-            URL.createObjectURL(
-                blob
-            );
+            URL.createObjectURL(blob);
 
+        const a =
+            document.createElement("a");
 
-        const link =
-            document.createElement(
-                "a"
-            );
+        a.href = url;
 
-
-        link.href =
-            url;
-
-
-        link.download =
+        a.download =
             "VIPERXMOD.mobileconfig";
 
+        document.body.appendChild(a);
 
-        document.body.appendChild(
-            link
-        );
+        a.click();
 
-
-        link.click();
-
-
-        link.remove();
-
+        a.remove();
 
         setTimeout(
-            function(){
-
-                URL.revokeObjectURL(
-                    url
-                );
-
+            () => {
+                URL.revokeObjectURL(url);
             },
             3000
         );
 
-
         setTimeout(
-            function(){
-
+            () => {
                 showToast(
                     "ดาวน์โหลด VIPERXMOD.mobileconfig แล้ว"
                 );
-
             },
             700
         );
 
-
     }catch(error){
 
-        console.error(
-            error
-        );
-
+        console.error(error);
 
         showToast(
-            "ไม่สามารถดาวน์โหลดไฟล์ได้"
+            "ไม่สามารถสร้างไฟล์ดาวน์โหลดได้"
         );
 
     }
-
 }
 
 </script>
